@@ -1,0 +1,4 @@
+1. Encontrar referencia de estudo inicial
+	1. Entender código exemplo, comentar cada linha informando o que faz 
+	2. Compilar pequeno código C (qualquer compilador)
+	3. Criação de novo código

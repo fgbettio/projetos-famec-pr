@@ -1,0 +1,18 @@
+
+- O que é Interface Cérebro Máquina (BCI)
+- O que é o Emotiv
+    -- Capacete
+    -- Sensores
+    -- APIs - Ferramentas de desenvolvimento (ler doc APIs)
+- Painel de Controle
+    -- Expressivo
+    -- Afetivo
+    -- Cognitivo
+- Demonstrações
+    -- Emokey do Bloco de notas
+    -- Calculadora - Emulador de Mouse + Emokey
+    -- Jogo - Emulador de Mouse + Emokey
+    -- Internet - Emulador de Mouse + Emokey (acessar o site da Famec - checar se tem rede na hora)
+- Possibilidades Atuais
+- Projetos em andamento
+
