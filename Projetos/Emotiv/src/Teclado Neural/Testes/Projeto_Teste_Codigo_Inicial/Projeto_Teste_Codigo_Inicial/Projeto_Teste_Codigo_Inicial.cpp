@@ -8,7 +8,6 @@
 #include <windows.h>
 #include <map>
 
-
 #include "C:\Program Files (x86)\Emotiv Development Kit_v1.0.0.3\doc\examples\include\edk.h"
 #include "C:\Program Files (x86)\Emotiv Development Kit_v1.0.0.3\doc\examples\include\edkErrorCode.h"
 
