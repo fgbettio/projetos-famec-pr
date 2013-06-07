@@ -54,12 +54,14 @@ int main(int argc, char **argv){
 			}
 			case 2:
 			{
-				std::cout << "Target IP of EmoComposer? [127.0.0.1] ";
-				std::getline(std::cin, input, '\n');
+				//std::cout << "Target IP of EmoComposer? [127.0.0.1] ";
+				//std::getline(std::cin, input, '\n');
 
-				if (input.empty()) {
-					input = std::string("127.0.0.1");
-				}
+				//if (input.empty()) {
+				//	input = std::string("127.0.0.1");
+				//}
+
+				input = std::string("127.0.0.1");
 
 				if (EE_EngineRemoteConnect(input.c_str(), composerPort) != EDK_OK) {
 					std::string errMsg = "Cannot connect to EmoComposer on [" + input + "]";
