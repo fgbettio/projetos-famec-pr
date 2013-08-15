@@ -99,8 +99,8 @@ int main(int argc, char **argv){
 					//Linha adicionada. Recebe o valor da piscada
 					//blink = ES_ExpressivIsBlink(eState);
 					//lookLeft = ES_ExpressivIsLookingLeft(eState);
-					//lookRight = ES_ExpressivIsLookingRight(eState);
-
+					lookRight = ES_ExpressivIsLookingRight(eState);
+					printf("%d",lookRight);
 
 					// continuar a partir daqui.
 					/*
@@ -123,7 +123,7 @@ int main(int argc, char **argv){
 					printf("%d",lookRight);
 					*/
 					
-					printf( "%d",ES_ExpressivIsLookingRight(eState));
+					//printf( "%d",ES_ExpressivIsLookingRight(eState));
 					
 					/*
 					lookRight = ES_ExpressivIsLookingRight(eState);
