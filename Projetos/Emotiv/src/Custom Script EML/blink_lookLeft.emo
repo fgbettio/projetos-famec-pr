@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE EML>
+<EML version="1.0" language="en_US">
+	<sequence>
+		<!-- blink -->		
+		<time value ="0s23t">
+			<signal_quality value="1,1,1,1,1,1,1,0.909091,1,1,1,1,1,1,1,1,1,1" />
+		</time>
+		<time value ="0s25t">
+			<expressiv_eye event="blink" value="1" />
+			<signal_quality value="1,1,1,1,1,1,1,0.909091,1,1,1,1,1,1,1,1,1,1" />
+		</time>
+		<time value ="0s28t">
+			<expressiv_eye event="blink" value="1" />
+			<signal_quality value="1,1,1,1,1,1,1,0.909091,1,1,1,1,1,1,1,1,1,1" />
+		</time>
+		<time value="1s0t">
+			<expressiv_eye event="blink" value="1" />
+			<signal_quality value="1,1,1,1,1,1,1,0.909091,1,1,1,1,1,1,1,1,1,1" />
+		</time>
+		<time value ="1s5t">
+			<expressiv_eye event="blink" value="1" />
+			<signal_quality value="1,1,1,1,1,1,1,0.909091,1,1,1,1,1,1,1,1,1,1" />
+		</time>
+		<time value ="1s7t">
+			<expressiv_eye event="blink" value="1" />
+			<signal_quality value="1,1,1,1,1,1,1,0.909091,1,1,1,1,1,1,1,1,1,1" />
+		</time>
+		<time value ="1s10t">
+			<expressiv_eye event="blink" value="1" />
+			<signal_quality value="1,1,1,1,1,1,1,0.909091,1,1,1,1,1,1,1,1,1,1" />
+		</time>
+		<time value ="1s12t">
+			<expressiv_eye event="blink" value="1" />
+			<signal_quality value="1,1,1,1,1,1,1,0.909091,1,1,1,1,1,1,1,1,1,1" />
+		</time>
+		<time value ="1s15t">
+			<expressiv_eye event="blink" value="1" />
+			<signal_quality value="1,1,1,1,1,1,1,0.909091,1,1,1,1,1,1,1,1,1,1" />
+		</time>	
+		<time value ="1s20t">
+			<expressiv_eye event="blink" value="0" />
+			<signal_quality value="1,1,1,1,1,1,1,0.1,1,1,1,1,1,1,1,1,1,1" />
+		</time>
+		<!-- left look -->
+		<time value ="1s25t">
+			<signal_quality value="1,1,1,0.909091,0.909091,1,0.909091,0.909091,0.909091,0.909091,0.636364,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value ="2s20t">
+			<expressiv_eye event="look_left" value="1" />
+			<signal_quality value="1,1,1,0.909091,0.909091,1,0.909091,0.909091,0.909091,0.909091,0.636364,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value ="2s16t">
+			<expressiv_eye event="look_left" value="1" />
+			<signal_quality value="1,1,1,0.909091,0.909091,1,0.909091,0.909091,0.909091,0.909091,0.636364,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value ="2s12t">
+			<expressiv_eye event="look_left" value="1" />
+			<signal_quality value="1,1,1,0.909091,0.909091,1,0.909091,0.909091,0.909091,0.909091,0.636364,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value ="2s7t">
+			<expressiv_eye event="look_left" value="1" />
+			<signal_quality value="1,1,1,0.909091,0.909091,1,0.909091,0.909091,0.909091,0.909091,0.636364,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value ="2s2t">
+			<expressiv_eye event="look_left" value="1" />
+			<signal_quality value="1,1,1,0.909091,0.909091,1,0.909091,0.909091,0.909091,0.909091,0.636364,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value ="2s0t">
+			<expressiv_eye event="look_left" value="1" />
+			<signal_quality value="1,1,1,0.909091,0.909091,1,0.909091,0.909091,0.909091,0.909091,0.636364,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value="3s5t">
+			<expressiv_eye event="look_left" value="1" />
+			<signal_quality value="1,1,1,1,0.909091,1,1,0.909091,0.909091,0.909091,0.909091,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value ="3s13t">
+			<expressiv_eye event="look_left" value="1" />
+			<signal_quality value="1,1,1,1,0.909091,1,1,0.909091,0.909091,0.909091,0.909091,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value ="3s17t">
+			<expressiv_eye event="look_left" value="1" />
+			<signal_quality value="1,1,1,1,0.909091,1,1,0.909091,0.909091,0.909091,0.909091,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value ="3s21t">
+			<expressiv_eye event="look_left" value="1" />
+			<signal_quality value="1,1,1,1,0.909091,1,1,0.909091,0.909091,0.909091,0.909091,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value ="3s25t">
+			<expressiv_eye event="look_left" value="1" />
+			<signal_quality value="1,1,1,1,0.909091,1,1,0.909091,0.909091,0.909091,0.909091,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value ="3s27t">
+			<expressiv_eye event="look_left" value="1" />
+			<signal_quality value="1,1,1,1,0.909091,1,1,0.909091,0.909091,0.909091,0.909091,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value ="3s30t">
+			<expressiv_eye event="look_left" value="1" />
+			<signal_quality value="1,1,1,1,0.909091,1,1,0.909091,0.909091,0.909091,0.909091,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value ="4s26t">
+			<expressiv_eye event="look_left" value="1" />
+			<signal_quality value="1,1,1,1,0.909091,1,1,0.909091,0.909091,0.909091,0.909091,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value ="4s23t">
+			<signal_quality value="1,1,1,1,0.909091,1,1,0.909091,0.909091,0.909091,0.909091,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+		<time value ="4s20t">
+			<expressiv_eye event="look_left" value="0" />
+			<signal_quality value="1,1,1,1,0.909091,1,1,0.909091,0.909091,0.909091,0.909091,0.818182,0.818182,0.909091,0.636364,1,1,1" />
+		</time>
+	</sequence>
+</EML>
