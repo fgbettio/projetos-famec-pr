@@ -95,7 +95,10 @@ int main(int argc, char **argv){
 				{
 
 					EE_EmoEngineEventGetEmoState(eEvent, eState);
-					
+				
+					// Sensitivity para o congnitivo.
+					//EE_CognitivSetActionSensitivity(1,1,1,1,1)
+
 					//Linha adicionada. Recebe o valor da piscada
 					//blink = ES_ExpressivIsBlink(eState);
 					//lookLeft = ES_ExpressivIsLookingLeft(eState);
