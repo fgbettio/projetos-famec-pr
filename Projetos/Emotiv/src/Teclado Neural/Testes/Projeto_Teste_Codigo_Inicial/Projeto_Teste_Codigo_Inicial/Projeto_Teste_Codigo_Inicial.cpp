@@ -7,13 +7,21 @@
 #include <sstream>
 #include <windows.h>
 #include <map>
+#include <dos.h>
 
 #include "C:\Program Files (x86)\Emotiv Development Kit_v1.0.0.3\doc\examples\include\edk.h"
 #include "C:\Program Files (x86)\Emotiv Development Kit_v1.0.0.3\doc\examples\include\edkErrorCode.h"
 
 #pragma comment(lib, "C:/Program Files (x86)/Emotiv Development Kit_v1.0.0.3/doc/examples/lib/edk.lib")
-
+int x=0,y=0,x_old;
 void logEmoState(std::ostream& os, unsigned int userID, EmoStateHandle eState, bool withHeader = false);
+void gotoxy(int x, int y)
+{
+	COORD coord;
+	coord.X = x;
+	coord.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
 
 int main(int argc, char **argv){
 
@@ -100,11 +108,31 @@ int main(int argc, char **argv){
 					//EE_CognitivSetActionSensitivity(1,1,1,1,1)
 
 					//Linha adicionada. Recebe o valor da piscada
-					//blink = ES_ExpressivIsBlink(eState);
-					//lookLeft = ES_ExpressivIsLookingLeft(eState);
+					blink = ES_ExpressivIsBlink(eState); 
+					lookLeft = ES_ExpressivIsLookingLeft(eState);
 					lookRight = ES_ExpressivIsLookingRight(eState);
-					printf("%d",lookRight);
+					//if(blink==1)
+						//printf("#");
+					y=10;
+					if(lookRight==1)
+					{
+						x_old=x;
+						x++;
+						//printf(">");
+						//Sleep(1000);
+					}
+					if(lookLeft==1)
+					{
+						x_old=x;
+						x--;
+						//printf("<");
+						//Sleep(1000);
+					}
 
+					gotoxy(x_old,y);
+					printf(" ");
+					gotoxy(x,y);
+					printf("#");
 					// continuar a partir daqui.
 					/*
 					if(blink == 1){
