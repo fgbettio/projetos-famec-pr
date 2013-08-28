@@ -1,0 +1,16 @@
+﻿Build started 27/08/2013 21:59:51.
+     1>Project "D:\Projetos Famec\Capacete Neural\SVN Google Code\src\Teclado Neural\Oficiais\Teclado_Virtual_Neural\Teclado_Virtual_Neural\Teclado_Virtual_Neural.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\Teclado_Virtual_Neural.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+       ClCompile:
+         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr:pure /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\Teclado_Virtual_Neural.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt Teclado_Virtual_Neural.cpp /clr:nostdlib 
+         Teclado_Virtual_Neural.cpp
+     1>d:\projetos famec\capacete neural\svn google code\src\teclado neural\oficiais\teclado_virtual_neural\teclado_virtual_neural\Form1.h(949): error C3861: 'printf': identifier not found
+     1>Done Building Project "D:\Projetos Famec\Capacete Neural\SVN Google Code\src\Teclado Neural\Oficiais\Teclado_Virtual_Neural\Teclado_Virtual_Neural\Teclado_Virtual_Neural.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.25
