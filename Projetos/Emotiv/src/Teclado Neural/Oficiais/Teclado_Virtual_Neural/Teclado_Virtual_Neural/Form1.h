@@ -1067,7 +1067,7 @@ private: System::Void button65_Click(System::Object^  sender, System::EventArgs^
 			const char* str = (const char*) (Marshal::StringToHGlobalAnsi(input)).ToPointer();
 
 			if (EE_EngineRemoteConnect(str, composerPort) != EDK_OK) {
-				status->Text = status->Text + "Não possível conectar ao EmoComposer" + "\r\n";
+				status->Text = status->Text + "Não foi possível conectar ao EmoComposer" + "\r\n";
 			}else{
 				status->Text = status->Text + "Conectado, aguardando instruções EmoComposer." + "\r\n";
 			}
