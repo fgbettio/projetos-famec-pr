@@ -1,3 +1,6 @@
+#include <edk.h>
+#include <edkErrorCode.h>
+#pragma comment(lib, "edk.lib")
 #pragma once
 
 namespace Teclado_Virtual_Neural {
@@ -8,6 +11,8 @@ namespace Teclado_Virtual_Neural {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	// Adicionado para uso do conversor String para const char
+	using namespace System::Runtime::InteropServices;
 
 	/// <summary>
 	/// Summary for Form1
@@ -18,6 +23,7 @@ namespace Teclado_Virtual_Neural {
 		Form1(void)
 		{
 			InitializeComponent();
+			InitializeMyComponents();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -97,6 +103,19 @@ namespace Teclado_Virtual_Neural {
 	private: System::Windows::Forms::Button^  button61;
 	private: System::Windows::Forms::Button^  button62;
 	private: System::Windows::Forms::Button^  button63;
+	private: System::Windows::Forms::TextBox^  status;
+	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::Button^  button64;
+	private: System::Windows::Forms::Button^  button65;
+	private: EmoEngineEventHandle eEvent;
+	private: EmoStateHandle eState;
+	private: unsigned int userID;
+	private: unsigned short composerPort;
+	private: int option, state, 
+		blink, lookLeft, lookRight, 
+		countBlink, countLookLeft, countLookRight, 
+		tempBlink, tempLookLeft, tempLookRight;
+
 	protected: 
 
 	private:
@@ -175,13 +194,17 @@ namespace Teclado_Virtual_Neural {
 			this->button61 = (gcnew System::Windows::Forms::Button());
 			this->button62 = (gcnew System::Windows::Forms::Button());
 			this->button63 = (gcnew System::Windows::Forms::Button());
+			this->status = (gcnew System::Windows::Forms::TextBox());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->button64 = (gcnew System::Windows::Forms::Button());
+			this->button65 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(130, 72);
+			this->button1->Location = System::Drawing::Point(131, 210);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(33, 34);
 			this->button1->TabIndex = 0;
@@ -192,7 +215,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(140, 112);
+			this->button2->Location = System::Drawing::Point(141, 250);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(33, 34);
 			this->button2->TabIndex = 1;
@@ -203,7 +226,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button3->Location = System::Drawing::Point(150, 152);
+			this->button3->Location = System::Drawing::Point(151, 290);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(33, 34);
 			this->button3->TabIndex = 2;
@@ -214,7 +237,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button4->Location = System::Drawing::Point(189, 152);
+			this->button4->Location = System::Drawing::Point(190, 290);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(33, 34);
 			this->button4->TabIndex = 5;
@@ -225,7 +248,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button5->Location = System::Drawing::Point(179, 112);
+			this->button5->Location = System::Drawing::Point(180, 250);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(33, 34);
 			this->button5->TabIndex = 4;
@@ -236,7 +259,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button6->Location = System::Drawing::Point(169, 72);
+			this->button6->Location = System::Drawing::Point(170, 210);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(33, 34);
 			this->button6->TabIndex = 3;
@@ -247,7 +270,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button7->Location = System::Drawing::Point(228, 152);
+			this->button7->Location = System::Drawing::Point(229, 290);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(33, 34);
 			this->button7->TabIndex = 8;
@@ -258,7 +281,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button8->Location = System::Drawing::Point(218, 112);
+			this->button8->Location = System::Drawing::Point(219, 250);
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(33, 34);
 			this->button8->TabIndex = 7;
@@ -269,7 +292,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button9->Location = System::Drawing::Point(208, 72);
+			this->button9->Location = System::Drawing::Point(209, 210);
 			this->button9->Name = L"button9";
 			this->button9->Size = System::Drawing::Size(33, 34);
 			this->button9->TabIndex = 6;
@@ -280,7 +303,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button10->Location = System::Drawing::Point(345, 152);
+			this->button10->Location = System::Drawing::Point(346, 290);
 			this->button10->Name = L"button10";
 			this->button10->Size = System::Drawing::Size(33, 34);
 			this->button10->TabIndex = 17;
@@ -291,7 +314,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button11->Location = System::Drawing::Point(335, 112);
+			this->button11->Location = System::Drawing::Point(336, 250);
 			this->button11->Name = L"button11";
 			this->button11->Size = System::Drawing::Size(33, 34);
 			this->button11->TabIndex = 16;
@@ -302,7 +325,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button12->Location = System::Drawing::Point(325, 72);
+			this->button12->Location = System::Drawing::Point(326, 210);
 			this->button12->Name = L"button12";
 			this->button12->Size = System::Drawing::Size(33, 34);
 			this->button12->TabIndex = 15;
@@ -313,7 +336,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button13->Location = System::Drawing::Point(306, 152);
+			this->button13->Location = System::Drawing::Point(307, 290);
 			this->button13->Name = L"button13";
 			this->button13->Size = System::Drawing::Size(33, 34);
 			this->button13->TabIndex = 14;
@@ -324,7 +347,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button14->Location = System::Drawing::Point(296, 112);
+			this->button14->Location = System::Drawing::Point(297, 250);
 			this->button14->Name = L"button14";
 			this->button14->Size = System::Drawing::Size(33, 34);
 			this->button14->TabIndex = 13;
@@ -335,7 +358,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button15->Location = System::Drawing::Point(286, 72);
+			this->button15->Location = System::Drawing::Point(287, 210);
 			this->button15->Name = L"button15";
 			this->button15->Size = System::Drawing::Size(33, 34);
 			this->button15->TabIndex = 12;
@@ -346,7 +369,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button16->Location = System::Drawing::Point(267, 152);
+			this->button16->Location = System::Drawing::Point(268, 290);
 			this->button16->Name = L"button16";
 			this->button16->Size = System::Drawing::Size(33, 34);
 			this->button16->TabIndex = 11;
@@ -357,7 +380,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button17->Location = System::Drawing::Point(257, 112);
+			this->button17->Location = System::Drawing::Point(258, 250);
 			this->button17->Name = L"button17";
 			this->button17->Size = System::Drawing::Size(33, 34);
 			this->button17->TabIndex = 10;
@@ -368,7 +391,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button18->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button18->Location = System::Drawing::Point(247, 72);
+			this->button18->Location = System::Drawing::Point(248, 210);
 			this->button18->Name = L"button18";
 			this->button18->Size = System::Drawing::Size(33, 34);
 			this->button18->TabIndex = 9;
@@ -379,7 +402,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button19->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button19->Location = System::Drawing::Point(462, 152);
+			this->button19->Location = System::Drawing::Point(463, 290);
 			this->button19->Name = L"button19";
 			this->button19->Size = System::Drawing::Size(33, 34);
 			this->button19->TabIndex = 26;
@@ -390,7 +413,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button20->Location = System::Drawing::Point(452, 112);
+			this->button20->Location = System::Drawing::Point(453, 250);
 			this->button20->Name = L"button20";
 			this->button20->Size = System::Drawing::Size(33, 34);
 			this->button20->TabIndex = 25;
@@ -401,7 +424,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button21->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button21->Location = System::Drawing::Point(442, 72);
+			this->button21->Location = System::Drawing::Point(443, 210);
 			this->button21->Name = L"button21";
 			this->button21->Size = System::Drawing::Size(33, 34);
 			this->button21->TabIndex = 24;
@@ -412,7 +435,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button22->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button22->Location = System::Drawing::Point(423, 152);
+			this->button22->Location = System::Drawing::Point(424, 290);
 			this->button22->Name = L"button22";
 			this->button22->Size = System::Drawing::Size(33, 34);
 			this->button22->TabIndex = 23;
@@ -423,7 +446,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button23->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button23->Location = System::Drawing::Point(413, 112);
+			this->button23->Location = System::Drawing::Point(414, 250);
 			this->button23->Name = L"button23";
 			this->button23->Size = System::Drawing::Size(33, 34);
 			this->button23->TabIndex = 22;
@@ -434,7 +457,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button24->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button24->Location = System::Drawing::Point(403, 72);
+			this->button24->Location = System::Drawing::Point(404, 210);
 			this->button24->Name = L"button24";
 			this->button24->Size = System::Drawing::Size(33, 34);
 			this->button24->TabIndex = 21;
@@ -445,7 +468,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button25->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button25->Location = System::Drawing::Point(384, 152);
+			this->button25->Location = System::Drawing::Point(385, 290);
 			this->button25->Name = L"button25";
 			this->button25->Size = System::Drawing::Size(33, 34);
 			this->button25->TabIndex = 20;
@@ -456,7 +479,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button26->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button26->Location = System::Drawing::Point(374, 112);
+			this->button26->Location = System::Drawing::Point(375, 250);
 			this->button26->Name = L"button26";
 			this->button26->Size = System::Drawing::Size(33, 34);
 			this->button26->TabIndex = 19;
@@ -467,7 +490,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button27->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button27->Location = System::Drawing::Point(364, 72);
+			this->button27->Location = System::Drawing::Point(365, 210);
 			this->button27->Name = L"button27";
 			this->button27->Size = System::Drawing::Size(33, 34);
 			this->button27->TabIndex = 18;
@@ -478,7 +501,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button29->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button29->Location = System::Drawing::Point(569, 112);
+			this->button29->Location = System::Drawing::Point(570, 250);
 			this->button29->Name = L"button29";
 			this->button29->Size = System::Drawing::Size(33, 34);
 			this->button29->TabIndex = 34;
@@ -489,7 +512,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button30->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button30->Location = System::Drawing::Point(559, 72);
+			this->button30->Location = System::Drawing::Point(560, 210);
 			this->button30->Name = L"button30";
 			this->button30->Size = System::Drawing::Size(33, 34);
 			this->button30->TabIndex = 33;
@@ -500,7 +523,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button31->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button31->Location = System::Drawing::Point(540, 152);
+			this->button31->Location = System::Drawing::Point(541, 290);
 			this->button31->Name = L"button31";
 			this->button31->Size = System::Drawing::Size(33, 34);
 			this->button31->TabIndex = 32;
@@ -511,7 +534,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button32->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button32->Location = System::Drawing::Point(530, 112);
+			this->button32->Location = System::Drawing::Point(531, 250);
 			this->button32->Name = L"button32";
 			this->button32->Size = System::Drawing::Size(33, 34);
 			this->button32->TabIndex = 31;
@@ -522,7 +545,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button33->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button33->Location = System::Drawing::Point(520, 72);
+			this->button33->Location = System::Drawing::Point(521, 210);
 			this->button33->Name = L"button33";
 			this->button33->Size = System::Drawing::Size(33, 34);
 			this->button33->TabIndex = 30;
@@ -533,7 +556,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button34->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button34->Location = System::Drawing::Point(501, 152);
+			this->button34->Location = System::Drawing::Point(502, 290);
 			this->button34->Name = L"button34";
 			this->button34->Size = System::Drawing::Size(33, 34);
 			this->button34->TabIndex = 29;
@@ -544,7 +567,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button35->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button35->Location = System::Drawing::Point(491, 112);
+			this->button35->Location = System::Drawing::Point(492, 250);
 			this->button35->Name = L"button35";
 			this->button35->Size = System::Drawing::Size(33, 34);
 			this->button35->TabIndex = 28;
@@ -555,7 +578,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button36->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button36->Location = System::Drawing::Point(481, 72);
+			this->button36->Location = System::Drawing::Point(482, 210);
 			this->button36->Name = L"button36";
 			this->button36->Size = System::Drawing::Size(33, 34);
 			this->button36->TabIndex = 27;
@@ -566,7 +589,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button37->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button37->Location = System::Drawing::Point(540, 32);
+			this->button37->Location = System::Drawing::Point(541, 170);
 			this->button37->Name = L"button37";
 			this->button37->Size = System::Drawing::Size(33, 34);
 			this->button37->TabIndex = 47;
@@ -577,7 +600,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button38->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button38->Location = System::Drawing::Point(501, 32);
+			this->button38->Location = System::Drawing::Point(502, 170);
 			this->button38->Name = L"button38";
 			this->button38->Size = System::Drawing::Size(33, 34);
 			this->button38->TabIndex = 46;
@@ -588,7 +611,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button39->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button39->Location = System::Drawing::Point(462, 32);
+			this->button39->Location = System::Drawing::Point(463, 170);
 			this->button39->Name = L"button39";
 			this->button39->Size = System::Drawing::Size(33, 34);
 			this->button39->TabIndex = 45;
@@ -599,7 +622,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button40->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button40->Location = System::Drawing::Point(423, 32);
+			this->button40->Location = System::Drawing::Point(424, 170);
 			this->button40->Name = L"button40";
 			this->button40->Size = System::Drawing::Size(33, 34);
 			this->button40->TabIndex = 44;
@@ -610,7 +633,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button41->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button41->Location = System::Drawing::Point(384, 32);
+			this->button41->Location = System::Drawing::Point(385, 170);
 			this->button41->Name = L"button41";
 			this->button41->Size = System::Drawing::Size(33, 34);
 			this->button41->TabIndex = 43;
@@ -621,7 +644,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button42->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button42->Location = System::Drawing::Point(345, 32);
+			this->button42->Location = System::Drawing::Point(346, 170);
 			this->button42->Name = L"button42";
 			this->button42->Size = System::Drawing::Size(33, 34);
 			this->button42->TabIndex = 42;
@@ -632,7 +655,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button43->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button43->Location = System::Drawing::Point(306, 32);
+			this->button43->Location = System::Drawing::Point(307, 170);
 			this->button43->Name = L"button43";
 			this->button43->Size = System::Drawing::Size(33, 34);
 			this->button43->TabIndex = 41;
@@ -643,7 +666,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button44->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button44->Location = System::Drawing::Point(267, 32);
+			this->button44->Location = System::Drawing::Point(268, 170);
 			this->button44->Name = L"button44";
 			this->button44->Size = System::Drawing::Size(33, 34);
 			this->button44->TabIndex = 40;
@@ -654,7 +677,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button45->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button45->Location = System::Drawing::Point(228, 32);
+			this->button45->Location = System::Drawing::Point(229, 170);
 			this->button45->Name = L"button45";
 			this->button45->Size = System::Drawing::Size(33, 34);
 			this->button45->TabIndex = 39;
@@ -665,7 +688,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button46->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button46->Location = System::Drawing::Point(189, 32);
+			this->button46->Location = System::Drawing::Point(190, 170);
 			this->button46->Name = L"button46";
 			this->button46->Size = System::Drawing::Size(33, 34);
 			this->button46->TabIndex = 38;
@@ -676,7 +699,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button47->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button47->Location = System::Drawing::Point(150, 32);
+			this->button47->Location = System::Drawing::Point(151, 170);
 			this->button47->Name = L"button47";
 			this->button47->Size = System::Drawing::Size(33, 34);
 			this->button47->TabIndex = 37;
@@ -687,7 +710,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button48->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button48->Location = System::Drawing::Point(111, 32);
+			this->button48->Location = System::Drawing::Point(112, 170);
 			this->button48->Name = L"button48";
 			this->button48->Size = System::Drawing::Size(33, 34);
 			this->button48->TabIndex = 36;
@@ -698,7 +721,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button49->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button49->Location = System::Drawing::Point(72, 32);
+			this->button49->Location = System::Drawing::Point(73, 170);
 			this->button49->Name = L"button49";
 			this->button49->Size = System::Drawing::Size(33, 34);
 			this->button49->TabIndex = 48;
@@ -709,7 +732,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button50->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button50->Location = System::Drawing::Point(111, 152);
+			this->button50->Location = System::Drawing::Point(112, 290);
 			this->button50->Name = L"button50";
 			this->button50->Size = System::Drawing::Size(33, 34);
 			this->button50->TabIndex = 49;
@@ -720,7 +743,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button28->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button28->Location = System::Drawing::Point(72, 72);
+			this->button28->Location = System::Drawing::Point(73, 210);
 			this->button28->Name = L"button28";
 			this->button28->Size = System::Drawing::Size(52, 34);
 			this->button28->TabIndex = 50;
@@ -731,7 +754,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button51->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button51->Location = System::Drawing::Point(72, 112);
+			this->button51->Location = System::Drawing::Point(73, 250);
 			this->button51->Name = L"button51";
 			this->button51->Size = System::Drawing::Size(62, 34);
 			this->button51->TabIndex = 51;
@@ -742,7 +765,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button52->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button52->Location = System::Drawing::Point(72, 152);
+			this->button52->Location = System::Drawing::Point(73, 290);
 			this->button52->Name = L"button52";
 			this->button52->Size = System::Drawing::Size(33, 34);
 			this->button52->TabIndex = 52;
@@ -753,7 +776,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button53->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button53->Location = System::Drawing::Point(72, 192);
+			this->button53->Location = System::Drawing::Point(73, 330);
 			this->button53->Name = L"button53";
 			this->button53->Size = System::Drawing::Size(43, 34);
 			this->button53->TabIndex = 53;
@@ -764,7 +787,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button54->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button54->Location = System::Drawing::Point(121, 192);
+			this->button54->Location = System::Drawing::Point(122, 330);
 			this->button54->Name = L"button54";
 			this->button54->Size = System::Drawing::Size(42, 34);
 			this->button54->TabIndex = 54;
@@ -775,7 +798,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button55->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button55->Location = System::Drawing::Point(169, 192);
+			this->button55->Location = System::Drawing::Point(170, 330);
 			this->button55->Name = L"button55";
 			this->button55->Size = System::Drawing::Size(43, 34);
 			this->button55->TabIndex = 55;
@@ -786,18 +809,19 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button56->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button56->Location = System::Drawing::Point(218, 192);
+			this->button56->Location = System::Drawing::Point(219, 330);
 			this->button56->Name = L"button56";
 			this->button56->Size = System::Drawing::Size(218, 34);
 			this->button56->TabIndex = 56;
 			this->button56->Text = L"Espaço";
 			this->button56->UseVisualStyleBackColor = true;
+			this->button56->Click += gcnew System::EventHandler(this, &Form1::button56_Click);
 			// 
 			// button57
 			// 
 			this->button57->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button57->Location = System::Drawing::Point(442, 192);
+			this->button57->Location = System::Drawing::Point(443, 330);
 			this->button57->Name = L"button57";
 			this->button57->Size = System::Drawing::Size(43, 34);
 			this->button57->TabIndex = 57;
@@ -808,7 +832,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button58->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button58->Location = System::Drawing::Point(491, 192);
+			this->button58->Location = System::Drawing::Point(492, 330);
 			this->button58->Name = L"button58";
 			this->button58->Size = System::Drawing::Size(43, 34);
 			this->button58->TabIndex = 58;
@@ -819,7 +843,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button59->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button59->Location = System::Drawing::Point(540, 192);
+			this->button59->Location = System::Drawing::Point(541, 330);
 			this->button59->Name = L"button59";
 			this->button59->Size = System::Drawing::Size(33, 34);
 			this->button59->TabIndex = 59;
@@ -830,7 +854,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button60->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button60->Location = System::Drawing::Point(579, 192);
+			this->button60->Location = System::Drawing::Point(580, 330);
 			this->button60->Name = L"button60";
 			this->button60->Size = System::Drawing::Size(76, 34);
 			this->button60->TabIndex = 60;
@@ -841,7 +865,7 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button61->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button61->Location = System::Drawing::Point(579, 152);
+			this->button61->Location = System::Drawing::Point(580, 290);
 			this->button61->Name = L"button61";
 			this->button61->Size = System::Drawing::Size(76, 34);
 			this->button61->TabIndex = 61;
@@ -852,30 +876,72 @@ namespace Teclado_Virtual_Neural {
 			// 
 			this->button62->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button62->Location = System::Drawing::Point(608, 72);
+			this->button62->Location = System::Drawing::Point(609, 210);
 			this->button62->Name = L"button62";
 			this->button62->Size = System::Drawing::Size(47, 74);
 			this->button62->TabIndex = 62;
 			this->button62->Text = L"Enter";
 			this->button62->UseVisualStyleBackColor = true;
-			this->button62->Click += gcnew System::EventHandler(this, &Form1::button62_Click);
 			// 
 			// button63
 			// 
 			this->button63->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->button63->Location = System::Drawing::Point(579, 32);
+			this->button63->Location = System::Drawing::Point(580, 170);
 			this->button63->Name = L"button63";
 			this->button63->Size = System::Drawing::Size(76, 34);
 			this->button63->TabIndex = 63;
 			this->button63->Text = L"Back";
 			this->button63->UseVisualStyleBackColor = true;
 			// 
+			// status
+			// 
+			this->status->Location = System::Drawing::Point(73, 371);
+			this->status->Multiline = true;
+			this->status->Name = L"status";
+			this->status->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
+			this->status->Size = System::Drawing::Size(583, 55);
+			this->status->TabIndex = 64;
+			this->status->TextChanged += gcnew System::EventHandler(this, &Form1::status_TextChanged);
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(73, 63);
+			this->textBox1->Multiline = true;
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
+			this->textBox1->Size = System::Drawing::Size(583, 101);
+			this->textBox1->TabIndex = 65;
+			// 
+			// button64
+			// 
+			this->button64->Location = System::Drawing::Point(12, 12);
+			this->button64->Name = L"button64";
+			this->button64->Size = System::Drawing::Size(123, 23);
+			this->button64->TabIndex = 66;
+			this->button64->Text = L"Conectar Headset";
+			this->button64->UseVisualStyleBackColor = true;
+			this->button64->Click += gcnew System::EventHandler(this, &Form1::button64_Click);
+			// 
+			// button65
+			// 
+			this->button65->Location = System::Drawing::Point(151, 12);
+			this->button65->Name = L"button65";
+			this->button65->Size = System::Drawing::Size(169, 23);
+			this->button65->TabIndex = 67;
+			this->button65->Text = L"Conectar EmoComposer";
+			this->button65->UseVisualStyleBackColor = true;
+			this->button65->Click += gcnew System::EventHandler(this, &Form1::button65_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(726, 262);
+			this->ClientSize = System::Drawing::Size(726, 438);
+			this->Controls->Add(this->button65);
+			this->Controls->Add(this->button64);
+			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->status);
 			this->Controls->Add(this->button63);
 			this->Controls->Add(this->button62);
 			this->Controls->Add(this->button61);
@@ -941,13 +1007,72 @@ namespace Teclado_Virtual_Neural {
 			this->Controls->Add(this->button1);
 			this->Name = L"Form1";
 			this->Text = L"Teclado Virtual Neural";
+			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->ResumeLayout(false);
+			this->PerformLayout();
+
+		}
+
+		void InitializeMyComponents(void)
+		{
+			eEvent = EE_EmoEngineEventCreate();
+			eState = EE_EmoStateCreate();
+			userID = 0;
+			composerPort = 1726;
+			option = 0; 
+			state = 0;
+			blink = 0; 
+			lookLeft = 0; 
+			lookRight = 0;
+			countBlink = 0; 
+			countLookLeft = 0; 
+			countLookRight = 0;
+			tempBlink = 0;
+			tempLookLeft = 0; 
+			tempLookRight = 0;
 
 		}
 #pragma endregion
-	private: System::Void button62_Click(System::Object^  sender, System::EventArgs^  e) {
-				
-			 }
+
+
+private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {	
+		 }
+
+private: System::Void status_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+		 }
+
+private: System::Void button56_Click(System::Object^  sender, System::EventArgs^  e) {
+			 status->Text = status->Text + "Botão 56" + "\r\n";
+		 }
+
+private: System::Void button64_Click(System::Object^  sender, System::EventArgs^  e) {
+			
+			 status->Text = "";
+			 status->Text = status->Text + "Conectando ao Headset." + "\r\n";
+
+			if (EE_EngineConnect() != EDK_OK) {
+				status->Text = status->Text + "Falha na inicialização do motor Emotiv" + "\r\n";
+			}else{
+				status->Text = status->Text + "Conectado, aguardando comandos." + "\r\n";
+			}
+		 }
+
+private: System::Void button65_Click(System::Object^  sender, System::EventArgs^  e) {
+			
+			status->Text = "";			 
+			status->Text = status->Text + "Conectando ao EmoComposer." + "\r\n";
+
+			String ^ input = gcnew String("127.0.0.1");
+			
+			const char* str = (const char*) (Marshal::StringToHGlobalAnsi(input)).ToPointer();
+
+			if (EE_EngineRemoteConnect(str, composerPort) != EDK_OK) {
+				status->Text = status->Text + "Não possível conectar ao EmoComposer" + "\r\n";
+			}else{
+				status->Text = status->Text + "Conectado, aguardando instruções EmoComposer." + "\r\n";
+			}
+		 }
+
 };
 }
 

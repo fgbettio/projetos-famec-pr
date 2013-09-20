@@ -47,4 +47,12 @@
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resX">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="C:\Program Files (x86)\Emotiv Development Kit_v1.0.0.3\doc\examples\lib\edk.lib" />
+  </ItemGroup>
 </Project>

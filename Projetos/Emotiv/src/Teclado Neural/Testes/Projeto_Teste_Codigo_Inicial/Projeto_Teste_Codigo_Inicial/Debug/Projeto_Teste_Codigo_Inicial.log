@@ -1,4 +1,4 @@
-﻿Build started 22/08/2013 18:57:27.
+﻿Build started 19/09/2013 18:29:10.
      1>Project "D:\Projetos Famec\Capacete Neural\SVN Google Code\src\Teclado Neural\Testes\Projeto_Teste_Codigo_Inicial\Projeto_Teste_Codigo_Inicial\Projeto_Teste_Codigo_Inicial.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Projeto_Teste_Codigo_Inicial.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -25,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.15
+Time Elapsed 00:00:03.99
