@@ -1,0 +1,4 @@
+Time,UserID,Wireless Signal Status,Blink,Wink Left,Wink Right,Look Left,Look Right,Eyebrow,Furrow,Smile,Clench,Smirk Left,Smirk Right,Laugh,Short Term Excitement,Long Term Excitement,Engagement/Boredom,Cognitiv Action,Cognitiv Power,
+0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+0.781922,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+1.6264,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0

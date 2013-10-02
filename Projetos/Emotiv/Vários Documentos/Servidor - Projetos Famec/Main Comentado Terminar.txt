@@ -1,0 +1,33 @@
+	std::map<EE_ExpressivAlgo_t, float> expressivStates;
+
+	EE_ExpressivAlgo_t upperFaceAction = ES_ExpressivGetUpperFaceAction(eState);
+	float			   upperFacePower  = ES_ExpressivGetUpperFaceActionPower(eState);
+
+	EE_ExpressivAlgo_t lowerFaceAction = ES_ExpressivGetLowerFaceAction(eState);
+	float			   lowerFacePower  = ES_ExpressivGetLowerFaceActionPower(eState);
+
+	expressivStates[ upperFaceAction ] = upperFacePower;
+	expressivStates[ lowerFaceAction ] = lowerFacePower;
+	
+	os << expressivStates[ EXP_EYEBROW     ] << ","; // eyebrow
+	os << expressivStates[ EXP_FURROW      ] << ","; // furrow
+	os << expressivStates[ EXP_SMILE       ] << ","; // smile
+	os << expressivStates[ EXP_CLENCH      ] << ","; // clench
+	os << expressivStates[ EXP_SMIRK_LEFT  ] << ","; // smirk left
+	os << expressivStates[ EXP_SMIRK_RIGHT ] << ","; // smirk right
+	os << expressivStates[ EXP_LAUGH       ] << ","; // laugh
+
+	// Affectiv Suite results
+	os << ES_AffectivGetExcitementShortTermScore(eState) << ",";
+	os << ES_AffectivGetExcitementLongTermScore(eState) << ",";
+
+	os << ES_AffectivGetEngagementBoredomScore(eState) << ",";
+
+	// Cognitiv Suite results
+	os << static_cast<int>(ES_CognitivGetCurrentAction(eState)) << ",";
+	os << ES_CognitivGetCurrentActionPower(eState);
+
+	os << std::endl;
+
+}
+
