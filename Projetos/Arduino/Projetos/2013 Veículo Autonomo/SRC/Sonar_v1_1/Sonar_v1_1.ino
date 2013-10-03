@@ -19,6 +19,7 @@ void loop() {
   //micValue = analogRead(micPin);    
 
   bip(bipPin);
+  while(analogRead(micPin)>500);// espera acabar o bit de inicio
   micValue=analogRead(micPin);
   while(micValue<70)
   {
@@ -27,9 +28,9 @@ void loop() {
     if(cont>10000)
       break;
   }
-  Serial.print("Sensor: ");  
+  Serial.print("Mic: ");  
   Serial.print(micValue, DEC);  
-  Serial.print("\tValor: ");  
+  Serial.print("\t cont: ");  
   Serial.println(cont, DEC);  
   delay(1000);
   
@@ -44,7 +45,7 @@ void loop() {
 void bip(int pino)
 {
   digitalWrite(pino, HIGH);  
-  delay(100);          
+  delay(10);          
   digitalWrite(pino, LOW);   
   //delay(valor);                  
 
