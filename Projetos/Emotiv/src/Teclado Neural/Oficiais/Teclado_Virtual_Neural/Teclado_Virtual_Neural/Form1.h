@@ -11,6 +11,7 @@ namespace Teclado_Virtual_Neural {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Threading;
 	// Adicionado para uso do conversor String para const char
 	using namespace System::Runtime::InteropServices;
 
@@ -115,6 +116,7 @@ namespace Teclado_Virtual_Neural {
 		blink, lookLeft, lookRight, 
 		countBlink, countLookLeft, countLookRight, 
 		tempBlink, tempLookLeft, tempLookRight;
+	Thread ^th1;
 
 	protected: 
 
@@ -882,6 +884,7 @@ namespace Teclado_Virtual_Neural {
 			this->button62->TabIndex = 62;
 			this->button62->Text = L"Enter";
 			this->button62->UseVisualStyleBackColor = true;
+			this->button62->Click += gcnew System::EventHandler(this, &Form1::button62_Click);
 			// 
 			// button63
 			// 
@@ -1030,10 +1033,30 @@ namespace Teclado_Virtual_Neural {
 			tempBlink = 0;
 			tempLookLeft = 0; 
 			tempLookRight = 0;
+			th1 = gcnew Thread(gcnew ThreadStart(this, &Form1::th1Method));
 
 		}
 #pragma endregion
+static double time = 0.0;
 
+private: System::Void th1Method()
+         {
+			 // TODO erro neste codigo
+             for(int i=0;i<500;i++)
+             {
+                 this.BeginInvoke
+				 ((Action)(
+					() =>
+					{
+						
+						
+					   textBox1->Text = time.ToString();
+					   time += 0.1;
+					}
+				 )) ;
+				Thread::Sleep(1);
+             }
+         }
 
 private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {	
 		 }
@@ -1073,6 +1096,9 @@ private: System::Void button65_Click(System::Object^  sender, System::EventArgs^
 			}
 		 }
 
+private: System::Void button62_Click(System::Object^  sender, System::EventArgs^  e) {
+			 th1->Start();
+		 }
 };
 }
 
