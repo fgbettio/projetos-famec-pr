@@ -1,0 +1,8 @@
+motor andar
+se yr > 500 pare
+volte (motor re)
+se yr < 0 pare
+motor para frente
+
+
+tentar fazer case com click do botao do mouse.
