@@ -1,0 +1,5 @@
+D:\projects\emotiv\svn_bSDK\trunk\bEDK\doc\examples_DotNet\build\Release\DotNetEmotivSDK.dll
+D:\projects\emotiv\svn_bSDK\trunk\bEDK\doc\examples_DotNet\build\Release\DotNetEmotivSDK.pdb
+D:\projects\emotiv\svn_bSDK\trunk\bEDK\doc\examples_DotNet\DotNetEmotivSDK\obj\x86\Release\ResolveAssemblyReference.cache
+D:\projects\emotiv\svn_bSDK\trunk\bEDK\doc\examples_DotNet\DotNetEmotivSDK\obj\x86\Release\DotNetEmotivSDK.dll
+D:\projects\emotiv\svn_bSDK\trunk\bEDK\doc\examples_DotNet\DotNetEmotivSDK\obj\x86\Release\DotNetEmotivSDK.pdb

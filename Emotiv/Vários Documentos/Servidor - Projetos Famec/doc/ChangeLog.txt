@@ -1,0 +1,429 @@
+=== Emotiv Software Development Kit Change Log ===
+
+Version 0.6.8
+-------------
+  * New EmoEngine API: EE_EngineClearEventQueue 
+ 
+  * New headset APIs allow access to gyro data:
+    * EE_HeadsetGetGryoDelta
+    * EE_HeadsetGyroRezero
+
+  * New Expressiv training API functions:
+    * EE_ExpressivSetTrainingAction / EE_ExpressivGetTrainingAction
+    * EE_ExpressivSetTrainingControl
+    * EE_ExpressivGetTrainedSignatureAvailable
+    * EE_ExpressivGetTrainedSignatureActions
+    * EE_ExpressivSetSignatureType / EE_ExpressivGetSignatureType
+
+  * New Expressiv training flags (see EE_ExpressivTrainingControl_t)
+
+  * New Expressiv events (see EE_ExpressivEvent_t)
+
+  * Revised set of Expressiv actions (see EE_ExpressivAlgo_t)
+    * Note: EXP_LAUGH is not supported in this release but will be enabled soon
+
+  * New Cognitiv training API function:
+    * EE_CognitivGetTrainedSignatureActions
+
+  * New Cognitiv training flags:
+    * COG_ERASE AND COG_RESET
+
+  * New Cognitiv events:
+    * EE_CognitivTrainingRejected, EE_CognitivTrainingDataErased, EE_CognitivTrainingReset
+
+  * Updated versions of SDK tools to support new APIs.
+    * Control Panel mouse emulation dialog (access from File menu)
+    * New UI on Control Panel's Expressiv tab to support training and switching between
+      a universal and a trained signature
+    * Support for clearing training data and aborting training session on Cognitiv tab
+    * Support for Expressiv training in EmoComposer
+    * Updated Expressiv action lists for EmoComposer and EmoKey
+
+  * Enhancement: Small change to Excitement detection to improve results
+
+  * Bug fix: fixed problems caused when rapidly retrieving large profiles from Control Panel in
+    proxy mode (connected with EE_EngineRemoteConnect)
+ 
+  * Bug fix: Cognitiv now verifies that action being trained is selected into the current level
+
+  * Bug fix: Cognitiv action skill now calculated after two actions are trained
+    (previously it took at least three times)
+
+Version 0.6.8.1
+---------------
+  * Special build: NOT FOR DISTRIBUTION OUTSIDE OF DEMIURGE STUDIOS
+
+  * Bug fix: Headset version number now properly initialized if dongle is
+    not paired to a headset when the Control Panel starts
+
+  * Bug fix: Fixed assorted multiplayer bugs in Control Panel
+
+  * Bug fix: EE_ExpressivSetTrainingAction now correctly rejects actions not eligible
+    for training.
+
+Version 0.6.8.2
+---------------
+  * Special build: FOR EMOTIV INTERNAL USE ONLY
+
+  * Mouse emulation enabled during Control Panel's proxy mode.  EE_Gyro APIs should 
+    not be used when mouse emulation is active.
+
+Version 0.6.8.3
+---------------
+  * Special build: FOR EMOTIV INTERNAL USE ONLY
+
+  * Frustration and Meditation removed due to runtime performance concerns
+
+Version 0.6.8.4
+---------------
+  * Special build: FOR EMOTIV INTERNAL USE ONLY
+
+  * SQ input to Cognitiv disabled FOR DEMO PURPOSES ONLY
+
+Version 0.6.8.5
+--------------
+  * SQ input to Cognitiv re-enabled
+
+  * Modifications to Affectiv Excitement and Engagement to better handle noisy EEG input
+ 
+  * Modification to Control Panel to provide more detailed status indication about
+    the state of the Affectiv algorithms
+
+Version 0.6.8.6
+---------------
+  * Identical to 0.6.8.5 except that Cognitiv SQ has been disabled FOR DEMO PURPOSES ONLY
+  
+Version 0.6.9
+-------------
+  * Special build: FOR EMOTIV INTERNAL USE ONLY
+  
+  * Special build of edk.dll to be compatible with some special third party applications.
+  
+  * SQ input to Cognitiv enabled
+  
+Version 0.6.9.1
+---------------
+  * Special build: FOR EMOTIV INTERNAL USE ONLY
+  
+  * Enhancement: Improved Frustration runtime performance and re-enable frustration results
+    on Control Panel.
+  
+  * Enhancement: Improved Cognitiv for more accurate classification and less false positive.
+
+Version 0.6.9.2
+---------------
+  * Special build: FOR EMOTIV INTERNAL USE ONLY
+  
+  * Bug fix: reset Cognitiv action to Neutral when there is no classifier.
+  
+  * Bug fix: clear the current Cognitiv classifier if failed to build a new signature.
+  
+  * Bug fix: clear the current Cognitiv error set signature bank whenever we have accepted
+    an auto-sampling neutral/action training.
+
+Version 0.6.9.3
+---------------
+  * Special build: FOR EMOTIV INTERNAL USE ONLY
+  
+  * Special build of edk.dll to be compatible with some special third party applications.
+  
+  * New optimization API functions:
+    * EE_OptimizationParamCreate / EE_OptimizationParamFree
+    * EE_OptimizationEnable / EE_OptimizationDisable
+    * EE_OptimizationIsEnabled
+    * EE_OptimizationGetParam
+    * EE_OptimizationGetVitalAlgorithm / EE_OptimizationSetVitalAlgorithm
+
+  * New tool in Control Panel to access the optimization API functions.
+  
+Version 0.6.9.4
+---------------
+  * Special build: FOR EMOTIV INTERNAL USE ONLY
+  
+  * EEG signal tuning for internal consumer headset development.
+
+Version 0.6.9.5
+---------------
+  * Special build: FOR EMOTIV INTERNAL USE ONLY
+  
+  * Updated EEG signal tuning for internal consumer headset development.
+  
+  * Enhancement: minor Expressiv tweakings
+  
+  * Some minor bug fixes in Control Panel UI
+
+Version 0.6.9.6
+---------------
+  * Special build: FOR EMOTIV INTERNAL USE ONLY
+  
+  * Enhancement: Fine tuned the Cognitiv action power output.
+  
+  * Contains experimental CQ-based signal scaling
+
+Version 0.6.9.7
+---------------
+  * Special build: FOR EMOTIV INTERNAL USE ONLY
+
+  * Removes CQ-based signal scaling - only intended for use with SDK headset
+  
+  * SignalQuality API changes
+  
+  * EmoComposer UI changes 
+
+Version 0.6.9.8
+---------------
+  * Special build: NOT FOR DISTRIBUTION OUTSIDE OF DEMIURGE STUDIOS
+  
+  * New Affectiv detections: Frustration and Meditation.
+
+  * New Expressiv expression: Laugh
+
+  * Updated Cognitiv detection.  Changes include:
+    * faster signature generation
+    * refined action power calculation
+    * signature caching (see below)
+  
+  * New APIs: 
+      * EmoEngine Optimization APIs can be used to indicate which detections are being used by
+        an application in order to optimize CPU load
+
+        * EE_OptimizationEnable / EE_OptimizationDisable / EE_OptimizationIsEnabled
+        * EE_OptimizationParamCreate / EE_OptimizationParamFree
+        * EE_OptimizationSetVitalAlgorithm / EE_OptimizationGetVitalAlgorithm
+
+      * ES_GetBatteryChargeLevel - used to report headset battery charge (not yet supported on current headsets)
+
+  * API and Header File Changes
+     * SignalQuality APIs and constants has been renamed to ContactQuality and the names of related
+       constants have been changed to "CQ"
+
+     * ES_GetContactQuality now returns a value of type EE_EEG_ContactQuality_t instead of a 
+       floating-point value
+  
+  * Enhancement: provided internal caching for recently built signatures in Cognitiv to avoid unnecessary 
+                 rebuilding when user switches levels or actions.  Currently, the most recent 20
+                 signatures are cached.
+  
+  * Enhancement: Affectiv tab UI changes in Control Panel to allow user optionally displays results from different 
+                 Affectiv suite detections on two separate charts.
+
+  * Enhancement: EE_Gyro APIs can now be used when connected to Control Panel and mouse emulation is enabled
+  
+  
+  * Bug fix: added logic to disable Expressiv training UI in the event that training commands are sent from a remote process.
+
+  * Bug fix: capped number of log messages in EmoComposer's "EmoEngine Log" at 250.  This should fix the reported
+             bug in which EmoComposer takes over the CPU (or one core) and slows down the system
+  
+  * Bug fix: sensor coordinates returned by EE_GetSensorDetails now includes locations for CMS and DRL.
+  
+  * Bug fix: EE_EngineRemoteConnect now returns error when remote instance is already serving another application.
+  
+  * Bug fix: EE_CognitivGetActivationLevel now returns activation level correctly.
+  
+  * Bug fix: EmoComposer now returns error when user is trying to select same Cognitiv actions
+             for different levels in Control Panel.
+
+  * Known issues with this release:
+    * Example code and User Manual not yet in sync with new features and API changes.  Please
+      refer API Reference documentation for up-to-date details about recent API changes.
+
+    * Frustration and Meditation controls not available in EmoComposer
+
+    * Changes to the Expressiv signature type (trained vs. universal) via the API while connected to Control Panel
+      via EE_EngineRemoteConnect won't show up in the Control Panel UI
+
+    * "Wireless signal strength is weak..." status message doesn't get refreshed properly when wireless signal improves
+
+    * Affectiv chart doesn't redraw correct if Display Length edit box has the input focus when switching between 
+      tabs in Control Panel
+
+    * "Non-Vital" overlay messages aren't removed on Control Panel's Expressiv Tab when detection
+      optimization is disabled via the API
+  
+    * The Affectiv tab doesn't provide any feedback about whether Affectiv detections have been 
+      deactivated via the optimization API (aside from observing the detection output)
+
+Version 0.6.9.9
+---------------
+
+  * CRITICAL BUG FIX: Ability to train Cognitiv Neutral in EmoComposer has been restored
+
+  * Bug fix: Cognitiv action type reset to COG_NEUTRAL if action power is zero
+
+  * Bug fix: New Cognitiv classifier is saved when switching levels/actions and after
+             erasing training data for a particular class
+
+  * Bug fix: Battery meter now initialized to "No Battery Meter Detected" (the norm for
+             the existing hardware) instead of "Critical"
+
+  * New APIs: 
+      * EE_CognitivSetSignatureCaching / EE_CognitivGetSignatureCaching
+      * EE_CognitivSetSignatureCacheSize / EE_CognitivGetSignatureCacheSize
+
+Version 0.7.0.1
+---------------
+  * Special build: FOR EMOTIV INTERNAL USE ONLY
+
+  * New Affectiv Suite Control Panel UI
+
+  * Support for "mapping B" and new headset firmware
+
+  * API Changes:
+    * Removed unused API functions ES_ExpressivIsLastTrainingSuccess and ES_ExpressivReadyForTraining
+    * Deprecated ES_Create and ES_Free functions.  These have been replaced with EE_EmoStateCreate and EE_EmoStateFree.
+
+  * Cognitiv detection changes:
+    * Disabled error set signature
+    * Increased maximum training epochs
+    * Sample-based training timer
+    * Changes to Cognitiv preprocessing step
+
+  * Bug fix: Cognitiv in Control Panel doesn't update the Action Skills indicator if switching from one action to another while working with EmoComposer. 
+
+  * Bug fix: Cognitiv in Control Panel: Abort Training doesn't return Cube to Neutral position while training in Auto Training mode.
+
+  * Bug fix: "is greater than" trigger problems in EmoKey.
+  * Bug fix: Control panel is sending duplicate EmoStates to connected application. 
+  * Bug fix: Action Skill spin box fails for some actions in EmoComposer. 
+  * Bug fix: Cognitiv action can be triggered while Recording Neutral.
+  * Bug fix: EmoKey "Configure..." option doesn't produce any action.
+
+Version 0.8.0.0
+---------------
+    * Revised Cognitiv Suite Control Panel UI
+    * Updated EmoKey UI
+
+    * Updated example code to reflect latest set of expressions, actions, and API changes
+    * Updated User Manual to reflect changes to UI, example code, and latest API
+
+    * API Changes:
+      * New APIs
+        * EE_SoftwareGetVersion
+        * EE_CognitivSetActiveActions
+        * EE_CognitivGetActiveActions
+        * EE_CognitivGetOverallSkillRating
+        * EE_CognitivGetActionSkillRating
+        * EE_CognitivGetTrainingTime
+
+      * Removed APIs
+        * EE_CognitivSetCurrentLevel
+        * EE_CognitivGetCurrentLevel
+
+      * EE_CognitivLevelUpdated event renamed to EE_CognitivSignatureUpdated
+
+    * Numerous bug fixes in SDK software applications
+
+Version 0.8.1.1
+---------------
+  * 'Dev' build: FOR EMOTIV INTERNAL USE ONLY
+    * Contains EE_Cognitiv[Set|Get]CurrentLevel APIs for Demiurge compatibility
+    * Contains Frustration and Meditation
+    * Contains Optimization UI in Control Panel 
+
+  * GUMMI-specific build supports EEG-signal scaling based on CQ with support for "mapping C" and firmware version 0x561.  Look for "-GUMMI" suffix to find the appropriate installer!
+
+  * Offline file stream now recognizes an additional 16 channels in files based on legacy recordings
+
+  * Offline file stream now inserts 'Good' contact quality values if none have been explicitly saved in the data file
+
+  * Detections have been updated to request data from O1/O2 by default
+
+  * Offline file stream behavior has been modified to provide Oz/PO4 data in place of O1/O2, if O1/O2 channels do not exist in data file.
+
+  * EmoKey changes:
+    * changed the extension of EmoKey Mapping file from ".xml" to ".ekm"
+    * change the default mapping file name from "Default" to "Untitled"
+    * use standard Windows file dialog in saving and loading mapping file
+    * use current user's home directory as the default place to save/load mapping file
+    * added status tips for Connect menu items
+    * added "Save As" action to the Application menu to optionally save the mapping to another location
+
+Version 0.8.2.0
+---------------
+  * 'Dev' build: FOR EMOTIV INTERNAL USE ONLY
+  
+  * Major profile handling change to Control Panel
+    * Profiles are now saved in central application data directory rather than
+      in the SDK program files directory
+    * Each user profile is now saved in its own file
+    * New Load User Profile, Save User Profile As, and Refresh Profile List menu
+      options under the Tool menu for dev (internal) builds
+    * Rewritten ProfileInterpreter utility that allows decoding hashed key names
+      and inserting data to a saved user profile.
+
+  * New Emotiv APIs:
+    * EE_LoadUserProfile and EE_SaveUserProfile to allow external applications
+      to use user profiles created in Emotiv Control Panel
+
+    * EE_ResetDetection to restart specified detection algorithm with default
+      user profile data.
+   
+    * EE_ExpressivGetTrainingTime() retrieves required training time for NTExpressiv
+      (useful for implementing progress bar animations and accurate user feedback).
+
+  * New .NET Managed APIs
+
+  * EmoKey enhancements
+    * Added support for sending keystrokes to specific windows or input fields in 
+      background applications
+
+      * Added Window Handle Picker tool to select active target application
+      * Removed outdated EmoKey Profiles/Harry Potter.xml
+      * Made the window handle picker tool available in the rule configuration table
+
+    * User is now warned if the current EmoKey mapping is not saved before
+      closing EmoKey or changing mapping file
+    * Display an asterisk on the window title if the modification hasn't
+      been saved yet
+    * No longer create an empty .ekm file when the "New Mapping" action is selected
+
+  * Offline file support enhancements
+    * Unrecognized labels no longer longer cause crashes
+    * NTExpressiv detection can now take advantage of channel remapping via the
+      channelRemap.cfg file
+    * Anti-reversing timing check disabled with offline data
+
+  * Other enhancements
+    * Added Recalibrate Button to Emotiv Control Panel's Affectiv tab
+    * Added support for new headset hardware
+
+  * Other bug fixes:
+    * Incorrect battery indicator value when headset switched off
+
+Version 0.8.2.1
+---------------
+  * 'Dev' build: FOR EMOTIV INTERNAL USE ONLY
+
+  * Bug fixes:
+    * Profiles will now be saved automatically if the dongle was removed
+    * Added missing hashed key names in ProfileInterpreter
+
+  * Removed duplicate copies of edk.dll and edk_utils.dll in example folder
+
+  * Updated copyright date in software to 2009
+
+Version 0.8.2.2
+---------------
+  * 'Dev' build: FOR EMOTIV INTERNAL USE ONLY
+
+  * Adjusted time return from ES_GetTimeFromStart() with a more accurate sampling rate
+
+Version 0.8.3.0
+---------------
+  * 'Dev' build: FOR EMOTIV INTERNAL USE ONLY
+  
+  * Major training data format change to Cognitiv detection
+    * The number of saved epochs is no longer capped and unlimited training data could be saved 
+      without expanding user profile
+
+  * ProfileInterpreter utility enhancement:
+    * Allows converting and printing binary form of Cognitiv signature and training data from profile
+
+  * Other bug fix:
+    * Training action will not changed back to Neutral anymore after training in Cognitiv tab
+
+  * Other enhancement:
+    * Improved animation of Cognitiv actions in Emotiv Control Panel under auto-training mode
+
+
