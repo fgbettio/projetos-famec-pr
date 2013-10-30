@@ -1,6 +1,7 @@
 #include <edk.h>
 #include <edkErrorCode.h>
 #include <iostream>
+#include <conio.h>
 #pragma comment(lib, "edk.lib")
 #pragma once
 
@@ -1037,6 +1038,45 @@ namespace Teclado_Virtual_Neural {
 		}
 #pragma endregion
 
+public: void ProcessoAtivado(void)
+		{
+			while (!_kbhit()) {
+
+				state = EE_EngineGetNextEvent(eEvent);
+
+				// New event needs to be handled
+				if (state == EDK_OK) {
+
+					EE_Event_t eventType = EE_EmoEngineEventGetType(eEvent);
+
+					// Erro nessa linha: cannot convert parameter 2 from 'cli::interior_ptr<Type>' to 'unsigned int *'
+					EE_EmoEngineEventGetUserId(eEvent, &userID);
+
+					// Log the EmoState if it has been updated
+					if (eventType == EE_EmoStateUpdated)
+					{
+						EE_EmoEngineEventGetEmoState(eEvent, eState);
+						
+						lookLeft = ES_ExpressivIsLookingLeft(eState);
+						lookRight = ES_ExpressivIsLookingRight(eState);
+						
+						if(lookRight==1)
+						{
+							button47->Select(); //Botao ganha focus
+						}
+						if(lookLeft==1)
+						{
+							button48->Select(); //Botao ganha focus
+						}					
+					}
+				}
+				else if (state != EDK_NO_EVENT) {
+					status->Text = "Erro interno no Emotiv Engine!";
+					break;
+				}
+			}
+		}
+
 private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
 			 cout << "foi";
 			 button56->Select(); //Inicializando o focus no botão espaço
@@ -1060,6 +1100,9 @@ private: System::Void button64_Click(System::Object^  sender, System::EventArgs^
 			}else{
 				status->Text = status->Text + "Conectado, aguardando comandos." + "\r\n";
 			}
+
+			ProcessoAtivado();
+
 		 }
 
 private: System::Void button65_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -1076,6 +1119,8 @@ private: System::Void button65_Click(System::Object^  sender, System::EventArgs^
 			}else{
 				status->Text = status->Text + "Conectado, aguardando instruções EmoComposer." + "\r\n";
 			}
+
+			ProcessoAtivado();
 		 }
 
 private: System::Void button62_Click(System::Object^  sender, System::EventArgs^  e) {
