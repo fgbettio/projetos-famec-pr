@@ -87,7 +87,7 @@ int main(int argc, char **argv){
 
 		std::ofstream ofs(argv[1]);
 		bool writeHeader = true;
-		
+
 		while (!_kbhit()) {
 
 			state = EE_EngineGetNextEvent(eEvent);
