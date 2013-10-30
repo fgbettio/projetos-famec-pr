@@ -1,5 +1,6 @@
 #include <edk.h>
 #include <edkErrorCode.h>
+#include <iostream>
 #pragma comment(lib, "edk.lib")
 #pragma once
 
@@ -11,9 +12,10 @@ namespace Teclado_Virtual_Neural {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	using namespace System::Threading;
 	// Adicionado para uso do conversor String para const char
 	using namespace System::Runtime::InteropServices;
+
+	using namespace std;
 
 	/// <summary>
 	/// Summary for Form1
@@ -116,7 +118,6 @@ namespace Teclado_Virtual_Neural {
 		blink, lookLeft, lookRight, 
 		countBlink, countLookLeft, countLookRight, 
 		tempBlink, tempLookLeft, tempLookRight;
-	Thread ^th1;
 
 	protected: 
 
@@ -1033,38 +1034,19 @@ namespace Teclado_Virtual_Neural {
 			tempBlink = 0;
 			tempLookLeft = 0; 
 			tempLookRight = 0;
-			th1 = gcnew Thread(gcnew ThreadStart(this, &Form1::th1Method));
-
 		}
 #pragma endregion
-static double time = 0.0;
 
-private: System::Void th1Method()
-         {
-			 // TODO erro neste codigo
-             for(int i=0;i<500;i++)
-             {
-                 this.BeginInvoke
-				 ((Action)(
-					() =>
-					{
-						
-						
-					   textBox1->Text = time.ToString();
-					   time += 0.1;
-					}
-				 )) ;
-				Thread::Sleep(1);
-             }
-         }
-
-private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {	
+private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
+			 cout << "foi";
+			 button56->Select(); //Inicializando o focus no botão espaço
 		 }
 
 private: System::Void status_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 		 }
 
 private: System::Void button56_Click(System::Object^  sender, System::EventArgs^  e) {
+			 cout << "Clicou no botão 56";
 			 status->Text = status->Text + "Botão 56" + "\r\n";
 		 }
 
@@ -1097,7 +1079,6 @@ private: System::Void button65_Click(System::Object^  sender, System::EventArgs^
 		 }
 
 private: System::Void button62_Click(System::Object^  sender, System::EventArgs^  e) {
-			 th1->Start();
 		 }
 };
 }
