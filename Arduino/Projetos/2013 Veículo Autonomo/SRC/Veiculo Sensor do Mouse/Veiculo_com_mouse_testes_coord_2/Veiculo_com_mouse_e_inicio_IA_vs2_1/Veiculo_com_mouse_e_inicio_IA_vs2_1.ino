@@ -79,20 +79,9 @@ void loop()
   //trajeto_3();
   //trajeto_2();
   //trajeto_4();
+  print_coord();
    
-  Serial.print("\tcoord_X=");
-  Serial.print(data.coord_x, DEC);
-  Serial.print("\tcoord_Y=");
-  Serial.print(data.coord_y, DEC);
-  Serial.print("\tVel_X=");
-  Serial.print(data.vel_x, DEC);
-  Serial.print("\t ");
-  Serial.print("\tVel_Y=");
-  Serial.print(data.vel_y, DEC);
-  Serial.print("\t ");
-  Serial.print("\tEstado=");
-  Serial.print(estado, DEC);
-  Serial.println();
+ 
 }
 //============== Declaração de Funções ==============
 //===================================================================================
@@ -225,7 +214,7 @@ float modulo(float valor)
     return sqrt(valor*valor);
 }
 //===================================================================================
-// Descrição: Trajeto_1
+// Descrição: Trajeto_1  - reto e desvia para direita 
 // Parametros: int
 // Retornos: int 
 // Indiretos: nada
@@ -619,5 +608,28 @@ void mouse_init()
 // ("Lendo ack byte2\n");
   delayMicroseconds(1000);
 }
+
+// ======================= IMPRIMIR========================
+// Descrição: imprime as vairiaveis de X e Y
+// Criação: 01/11/13
+// Autor: Robson Euclides
+// ========================================================
+void print_coord ()
+{
+  Serial.print("\tcoord_X=");
+  Serial.print(data.coord_x, DEC);
+  Serial.print("\tcoord_Y=");
+  Serial.print(data.coord_y, DEC);
+  Serial.print("\tVel_X=");
+  Serial.print(data.vel_x, DEC);
+  Serial.print("\t ");
+  Serial.print("\tVel_Y=");
+  Serial.print(data.vel_y, DEC);
+  Serial.print("\t ");
+  Serial.print("\tEstado=");
+  Serial.print(estado, DEC);
+  Serial.println();
+}
+// ========================================================
 
 
