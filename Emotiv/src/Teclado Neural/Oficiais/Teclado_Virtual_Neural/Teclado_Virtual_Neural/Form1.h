@@ -17,7 +17,13 @@ namespace Teclado_Virtual_Neural {
 	using namespace System::Runtime::InteropServices;
 
 	using namespace std;
-
+	
+	//using System.Collections.Generic; 
+	//using Emotiv; 
+	//using namespace System::OI; 
+	//using System::Threading; 
+	//using System::Reflection;
+	
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
@@ -123,6 +129,8 @@ namespace Teclado_Virtual_Neural {
 	private: System::Windows::Forms::Timer^  timer1;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Button^  button66;
+private: System::Windows::Forms::Button^  button67;
+private: System::Windows::Forms::Button^  button68;
 	private: System::ComponentModel::IContainer^  components;
 
 	protected: 
@@ -211,6 +219,8 @@ namespace Teclado_Virtual_Neural {
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button66 = (gcnew System::Windows::Forms::Button());
+			this->button67 = (gcnew System::Windows::Forms::Button());
+			this->button68 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -1021,11 +1031,33 @@ namespace Teclado_Virtual_Neural {
 			this->button66->UseVisualStyleBackColor = true;
 			this->button66->Click += gcnew System::EventHandler(this, &Form1::button66_Click);
 			// 
+			// button67
+			// 
+			this->button67->Location = System::Drawing::Point(499, 12);
+			this->button67->Name = L"button67";
+			this->button67->Size = System::Drawing::Size(75, 23);
+			this->button67->TabIndex = 70;
+			this->button67->Text = L"Gyroscope";
+			this->button67->UseVisualStyleBackColor = true;
+			this->button67->Click += gcnew System::EventHandler(this, &Form1::button67_Click);
+			// 
+			// button68
+			// 
+			this->button68->Location = System::Drawing::Point(709, 12);
+			this->button68->Name = L"button68";
+			this->button68->Size = System::Drawing::Size(95, 23);
+			this->button68->TabIndex = 71;
+			this->button68->Text = L"Mudar Cursor";
+			this->button68->UseVisualStyleBackColor = true;
+			this->button68->Click += gcnew System::EventHandler(this, &Form1::button68_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(904, 380);
+			this->Controls->Add(this->button68);
+			this->Controls->Add(this->button67);
 			this->Controls->Add(this->button66);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button65);
@@ -1846,6 +1878,33 @@ private: void textBox1AutoScroll(void){
 private: void statusAutoScroll(void){
 			status->SelectionStart = status->Text->Length;
 			status->ScrollToCaret();
+		 }
+private: System::Void button67_Click(System::Object^  sender, System::EventArgs^  e) {
+
+
+			int dx; 
+			int dy;
+			int result;
+			
+			result = EE_HeadsetGetGyroDelta (0, &dx, &dy);
+			//EmoEngine.Instance.HeadsetGetGyroDelta(0, out dx, out dy); 
+
+			status->Text = status->Text + "DX: " + dx + ", DY: " + dy + "\r\n";
+
+
+		 }
+private: System::Void button68_Click(System::Object^  sender, System::EventArgs^  e) {
+
+			status->Text = status->Text + "Clicou! \r\n";
+
+			int mx = 100;
+			int my = 100;
+
+			//SetCursorPos(mx, my);
+
+			status->Text = status->Text + "mx: " + mx + ", my: " + my + "\r\n";
+
+
 		 }
 };
 
