@@ -1,0 +1,73 @@
+﻿Build started 16/05/2014 20:57:01.
+     1>Project "D:\Projetos Famec\Capacete Neural\SVN Google Code\Emotiv\src\Teclado Neural\Testes\Teclado_Numerico_Acelerometro\Teclado_Numerico_Acelerometro\Teclado_Numerico_Acelerometro.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\Teclado_Numerico_Acelerometro.unsuccessfulbuild".
+       GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+       ClCompile:
+         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr:pure /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\Teclado_Numerico_Acelerometro.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt Teclado_Numerico_Acelerometro.cpp /clr:nostdlib 
+         Teclado_Numerico_Acelerometro.cpp
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(151): warning C4272: 'ES_Create' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(161): warning C4272: 'ES_Free' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(169): warning C4272: 'ES_Init' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(181): warning C4272: 'ES_GetTimeFromStart' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(192): warning C4272: 'ES_GetHeadsetOn' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(201): warning C4272: 'ES_GetNumContactQualityChannels' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(212): warning C4272: 'ES_GetContactQuality' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(232): warning C4272: 'ES_GetContactQualityFromAllChannels' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(241): warning C4272: 'ES_ExpressivIsBlink' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(251): warning C4272: 'ES_ExpressivIsLeftWink' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(261): warning C4272: 'ES_ExpressivIsRightWink' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(270): warning C4272: 'ES_ExpressivIsEyesOpen' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(280): warning C4272: 'ES_ExpressivIsLookingUp' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(290): warning C4272: 'ES_ExpressivIsLookingDown' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(300): warning C4272: 'ES_ExpressivIsLookingLeft' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(310): warning C4272: 'ES_ExpressivIsLookingRight' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(324): warning C4272: 'ES_ExpressivGetEyelidState' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(345): warning C4272: 'ES_ExpressivGetEyeLocation' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(355): warning C4272: 'ES_ExpressivGetEyebrowExtent' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(365): warning C4272: 'ES_ExpressivGetSmileExtent' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(375): warning C4272: 'ES_ExpressivGetClenchExtent' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(386): warning C4272: 'ES_ExpressivGetUpperFaceAction' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(396): warning C4272: 'ES_ExpressivGetUpperFaceActionPower' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(406): warning C4272: 'ES_ExpressivGetLowerFaceAction' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(416): warning C4272: 'ES_ExpressivGetLowerFaceActionPower' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(427): warning C4272: 'ES_ExpressivIsActive' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(437): warning C4272: 'ES_AffectivGetExcitementLongTermScore' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(447): warning C4272: 'ES_AffectivGetExcitementShortTermScore' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(458): warning C4272: 'ES_AffectivIsActive' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(466): warning C4272: 'ES_AffectivGetMeditationScore' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(474): warning C4272: 'ES_AffectivGetFrustrationScore' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(482): warning C4272: 'ES_AffectivGetEngagementBoredomScore' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(492): warning C4272: 'ES_CognitivGetCurrentAction' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(502): warning C4272: 'ES_CognitivGetCurrentActionPower' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(510): warning C4272: 'ES_CognitivIsActive' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(521): warning C4272: 'ES_GetWirelessSignalStatus' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(530): warning C4272: 'ES_Copy' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(541): warning C4272: 'ES_AffectivEqual' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(552): warning C4272: 'ES_ExpressivEqual' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(563): warning C4272: 'ES_CognitivEqual' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(577): warning C4272: 'ES_EmoEngineEqual' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(588): warning C4272: 'ES_Equal' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\EmoStateDLL.h(597): warning C4272: 'ES_GetBatteryChargeLevel' : is marked __declspec(dllimport); must specify native calling convention when importing a function.
+         All outputs are up-to-date.
+       CoreResGen:
+         All outputs are up-to-date.
+       ResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Projetos Famec\Capacete Neural\SVN Google Code\Emotiv\src\Teclado Neural\Testes\Teclado_Numerico_Acelerometro\Debug\Teclado_Numerico_Acelerometro.exe" /INCREMENTAL /NOLOGO /ASSEMBLYRESOURCE:Debug\Teclado_Numerico_Acelerometro.Form1.resources /MANIFEST /ManifestFile:"Debug\Teclado_Numerico_Acelerometro.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Projetos Famec\Capacete Neural\SVN Google Code\Emotiv\src\Teclado Neural\Testes\Teclado_Numerico_Acelerometro\Debug\Teclado_Numerico_Acelerometro.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\app.res
+         Debug\AssemblyInfo.obj
+         Debug\stdafx.obj
+         Debug\Teclado_Numerico_Acelerometro.obj
+         "Debug\.NETFramework,Version=v4.0.AssemblyAttributes.obj"
+     1>Teclado_Numerico_Acelerometro.obj : error LNK2031: unable to generate p/invoke for "extern "C" int __clrcall EE_EngineConnect(void)" (?EE_EngineConnect@@$$J0YMHXZ); calling convention missing in metadata
+     1>Teclado_Numerico_Acelerometro.obj : error LNK2028: unresolved token (0A00001E) "extern "C" int __clrcall EE_EngineConnect(void)" (?EE_EngineConnect@@$$J0YMHXZ) referenced in function "private: void __clrcall Teclado_Numerico_Acelerometro::Form1::buttonConectarHeadset_Click(class System::Object ^,class System::EventArgs ^)" (?buttonConectarHeadset_Click@Form1@Teclado_Numerico_Acelerometro@@$$FA$AAMXP$AAVObject@System@@P$AAVEventArgs@4@@Z)
+     1>Teclado_Numerico_Acelerometro.obj : error LNK2019: unresolved external symbol "extern "C" int __clrcall EE_EngineConnect(void)" (?EE_EngineConnect@@$$J0YMHXZ) referenced in function "private: void __clrcall Teclado_Numerico_Acelerometro::Form1::buttonConectarHeadset_Click(class System::Object ^,class System::EventArgs ^)" (?buttonConectarHeadset_Click@Form1@Teclado_Numerico_Acelerometro@@$$FA$AAMXP$AAVObject@System@@P$AAVEventArgs@4@@Z)
+     1>D:\Projetos Famec\Capacete Neural\SVN Google Code\Emotiv\src\Teclado Neural\Testes\Teclado_Numerico_Acelerometro\Debug\Teclado_Numerico_Acelerometro.exe : fatal error LNK1120: 2 unresolved externals
+     1>Done Building Project "D:\Projetos Famec\Capacete Neural\SVN Google Code\Emotiv\src\Teclado Neural\Testes\Teclado_Numerico_Acelerometro\Teclado_Numerico_Acelerometro\Teclado_Numerico_Acelerometro.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.16
