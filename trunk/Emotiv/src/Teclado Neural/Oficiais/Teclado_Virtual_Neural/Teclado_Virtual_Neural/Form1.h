@@ -1180,7 +1180,7 @@ private: System::Void button56_Click(System::Object^  sender, System::EventArgs^
 
 private: System::Void button64_Click(System::Object^  sender, System::EventArgs^  e) {
 			
-			status->Text = status->Text + "---------- HEADSET ---------" + "\r\n";
+			status->Text = status->Text + "---------- HEADSET v1 ---------" + "\r\n";
 			status->Text = status->Text + "Conectando ao Headset." + "\r\n";
 
 			if (EE_EngineConnect() != EDK_OK) {
@@ -1220,10 +1220,30 @@ private: System::Void button62_Click(System::Object^  sender, System::EventArgs^
 
 private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 
+			 status->Text = "Teste";
+
 			//Verificar se o flag é de conectado ou não - 1 = conectado, 2 = não conectado
 			 if(flagConectado == 0){
-				return;
+				//return;
 			 }
+			 
+			int dx; 
+			int dy;
+			int result;
+			
+			result = EE_HeadsetGetGyroDelta (0, &dx, &dy);
+			//EmoEngine.Instance.HeadsetGetGyroDelta(0, dx, dy); 
+
+			status->Text = "Timer: DX: " + dx + ", DY: " + dy + ", result: " + result + "\r\n";
+
+			//status->SelectionStart = status->Text->Length;
+			//status->ScrollToCaret();
+
+			//textBox1->SelectionStart = textBox1->Text->Length;
+			//textBox1->ScrollToCaret();
+
+			return;
+			
 
 			unsigned int userID = 0;
 
@@ -1245,6 +1265,8 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 					lookLeft = ES_ExpressivIsLookingLeft(eState);
 					lookRight = ES_ExpressivIsLookingRight(eState);
 					blink = ES_ExpressivIsBlink(eState);
+
+					//status->Text = status->Text + "Esquerda: " + lookLeft + ", direta: "+ lookRight +"\r\n";
 						
 					if(lookRight==1)
 					{
@@ -1273,6 +1295,19 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 						chamarSwitch(contMapButton, blink);
 					}
 				}
+
+				// codigo mostra os valores do gyroscope
+
+				//int dx; 
+				//int dy;
+				//int result;
+			
+				//result = EE_HeadsetGetGyroDelta (0, &dx, &dy);
+				//EmoEngine.Instance.HeadsetGetGyroDelta(0, out dx, out dy); 
+
+				//status->Text = status->Text + "DX: " + dx + ", DY: " + dy + ", result: " + result + "\r\n";
+
+
 			}
 			else if (state != EDK_NO_EVENT) {
 				status->Text = status->Text + "Erro interno no Emotiv Engine!" + "\r\n";
@@ -1889,7 +1924,7 @@ private: System::Void button67_Click(System::Object^  sender, System::EventArgs^
 			result = EE_HeadsetGetGyroDelta (0, &dx, &dy);
 			//EmoEngine.Instance.HeadsetGetGyroDelta(0, out dx, out dy); 
 
-			status->Text = status->Text + "DX: " + dx + ", DY: " + dy + "\r\n";
+			status->Text = "DX: " + dx + ", DY: " + dy + ", result: " + result + "\r\n";
 
 
 		 }
@@ -1902,7 +1937,7 @@ private: System::Void button68_Click(System::Object^  sender, System::EventArgs^
 
 			//SetCursorPos(mx, my);
 
-			status->Text = status->Text + "mx: " + mx + ", my: " + my + "\r\n";
+			status->Text = "mx: " + mx + ", my: " + my + "\r\n";
 
 
 		 }

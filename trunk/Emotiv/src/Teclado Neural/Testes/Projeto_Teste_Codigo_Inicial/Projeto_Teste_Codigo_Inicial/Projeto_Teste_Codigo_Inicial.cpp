@@ -109,8 +109,12 @@ int main(int argc, char **argv){
 
 					//Linha adicionada. Recebe o valor da piscada
 					blink = ES_ExpressivIsBlink(eState); 
-					lookLeft = ES_ExpressivIsLookingLeft(eState);
-					lookRight = ES_ExpressivIsLookingRight(eState);
+					//lookLeft = ;
+					//lookRight = 
+					printf("Left: %d, Right: %d, UP: %d, Blink: %d\t Time: %f\n",
+						ES_ExpressivIsLookingRight(eState),ES_ExpressivIsLookingLeft(eState),ES_ExpressivIsLookingUp(eState), ES_ExpressivIsBlink(eState), ES_GetTimeFromStart(eState));
+					
+					/*
 					if(blink==1)
 						printf("#");
 					y=10;
@@ -128,7 +132,7 @@ int main(int argc, char **argv){
 						printf("<");
 						//Sleep(1000);
 					}
-
+					*/
 					//gotoxy(x_old,y);
 					//printf(" ");
 					//gotoxy(x,y);
