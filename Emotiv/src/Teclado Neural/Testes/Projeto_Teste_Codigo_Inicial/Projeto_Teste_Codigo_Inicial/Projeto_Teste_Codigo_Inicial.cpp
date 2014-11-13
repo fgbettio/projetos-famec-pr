@@ -112,7 +112,7 @@ int main(int argc, char **argv){
 					//lookLeft = ;
 					//lookRight = 
 					printf("Left: %d, Right: %d, UP: %d, Blink: %d\t Time: %f\n",
-						ES_ExpressivIsLookingRight(eState),ES_ExpressivIsLookingLeft(eState),ES_ExpressivIsLookingUp(eState), ES_ExpressivIsBlink(eState), ES_GetTimeFromStart(eState));
+						ES_ExpressivIsLookingLeft(eState),ES_ExpressivIsLookingRight(eState),ES_ExpressivIsLookingUp(eState), ES_ExpressivIsBlink(eState), ES_GetTimeFromStart(eState));
 					
 					/*
 					if(blink==1)

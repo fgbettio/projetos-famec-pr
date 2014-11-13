@@ -1220,21 +1220,21 @@ private: System::Void button62_Click(System::Object^  sender, System::EventArgs^
 
 private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 
-			 status->Text = "Teste";
+			 //status->Text = "Teste";
 
 			//Verificar se o flag é de conectado ou não - 1 = conectado, 2 = não conectado
 			 if(flagConectado == 0){
-				//return;
+				return;
 			 }
 			 
-			int dx; 
-			int dy;
-			int result;
+			//int dx; 
+			//int dy;
+			//int result;
 			
-			result = EE_HeadsetGetGyroDelta (0, &dx, &dy);
+			//result = EE_HeadsetGetGyroDelta (0, &dx, &dy);
 			//EmoEngine.Instance.HeadsetGetGyroDelta(0, dx, dy); 
 
-			status->Text = "Timer: DX: " + dx + ", DY: " + dy + ", result: " + result + "\r\n";
+			//status->Text = "Timer: DX: " + dx + ", DY: " + dy + ", result: " + result + "\r\n";
 
 			//status->SelectionStart = status->Text->Length;
 			//status->ScrollToCaret();
@@ -1242,7 +1242,7 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 			//textBox1->SelectionStart = textBox1->Text->Length;
 			//textBox1->ScrollToCaret();
 
-			return;
+			//return;
 			
 
 			unsigned int userID = 0;
