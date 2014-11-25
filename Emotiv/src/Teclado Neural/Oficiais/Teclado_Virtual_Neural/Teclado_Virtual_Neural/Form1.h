@@ -121,6 +121,7 @@ namespace Teclado_Virtual_Neural {
 	private: EmoStateHandle eState;
 	//private: unsigned int userID;
 	private: unsigned short composerPort;
+	private: String^ flagChar;
 	private: int option, state, 
 		blink, lookLeft, lookRight, 
 		countBlink, countLookLeft, countLookRight, 
@@ -577,7 +578,7 @@ private: System::Windows::Forms::Button^  button68;
 			this->button31->Name = L"button31";
 			this->button31->Size = System::Drawing::Size(33, 34);
 			this->button31->TabIndex = 32;
-			this->button31->Text = L"Q";
+			this->button31->Text = L"\?";
 			this->button31->UseVisualStyleBackColor = true;
 			// 
 			// button32
@@ -801,7 +802,7 @@ private: System::Windows::Forms::Button^  button68;
 			this->button50->Name = L"button50";
 			this->button50->Size = System::Drawing::Size(33, 34);
 			this->button50->TabIndex = 49;
-			this->button50->Text = L"Q";
+			this->button50->Text = L"\\";
 			this->button50->UseVisualStyleBackColor = true;
 			// 
 			// button28
@@ -856,7 +857,7 @@ private: System::Windows::Forms::Button^  button68;
 			this->button54->Name = L"button54";
 			this->button54->Size = System::Drawing::Size(42, 34);
 			this->button54->TabIndex = 54;
-			this->button54->Text = L"Q";
+			this->button54->Text = L"W1";
 			this->button54->UseVisualStyleBackColor = true;
 			// 
 			// button55
@@ -901,7 +902,7 @@ private: System::Windows::Forms::Button^  button68;
 			this->button58->Name = L"button58";
 			this->button58->Size = System::Drawing::Size(43, 34);
 			this->button58->TabIndex = 58;
-			this->button58->Text = L"Q";
+			this->button58->Text = L"W2";
 			this->button58->UseVisualStyleBackColor = true;
 			// 
 			// button59
@@ -912,7 +913,7 @@ private: System::Windows::Forms::Button^  button68;
 			this->button59->Name = L"button59";
 			this->button59->Size = System::Drawing::Size(33, 34);
 			this->button59->TabIndex = 59;
-			this->button59->Text = L"Q";
+			this->button59->Text = L"Pt";
 			this->button59->UseVisualStyleBackColor = true;
 			// 
 			// button60
@@ -1009,7 +1010,7 @@ private: System::Windows::Forms::Button^  button68;
 			// timer1
 			// 
 			this->timer1->Enabled = true;
-			this->timer1->Interval = 50;
+			this->timer1->Interval = 250;
 			this->timer1->Tick += gcnew System::EventHandler(this, &Form1::timer1_Tick);
 			// 
 			// label1
@@ -1271,6 +1272,7 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 					if(lookRight==1)
 					{
 						status->Text = status->Text + "Olhou para a direita!" + "\r\n";
+						
 						contMapButton++;
 						if(contMapButton > 63){
 							contMapButton = 1;
@@ -1290,6 +1292,7 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 					}
 
 					if(blink==1){
+						//if(
 						status->Text = status->Text + "Piscou!" + "\r\n";
 						status->Text = status->Text + "Numero do mapa do teclado: " + contMapButton + "\r\n";
 						chamarSwitch(contMapButton, blink);
@@ -1461,444 +1464,632 @@ private: void chamarSwitch(int contMapButton, int blink1){
 			status->Text = status->Text + "Chamou switch!" + "\r\n";
 
 			switch(contMapButton){
-						
+				
+				// botao '
 				case 1:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "250"){
 						button49->PerformClick();
+						flagChar = "250";
 					}else{
 						button49->Select();
 					}		
 					break;
+				
+				// botao 1
 				case 2:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "1"){
 						button48->PerformClick();
+						flagChar = "1";
 					}else{
 						button48->Select();
 					}							
 					break;
+				
+				// botao 2
 				case 3:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "2"){
 						button47->PerformClick();
+						flagChar = "2";
 					}else{
 						button47->Select();
 					}
 					break;
+				
+				// botao 3
 				case 4:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "3"){
 						button46->PerformClick();
+						flagChar = "3";
 					}else{
 						button46->Select();
 					}					
 					break;
+
+				// botao 4
 				case 5:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "4"){
 						button45->PerformClick();
+						flagChar = "4";
 					}else{
 						button45->Select();
 					}
 					break;
+
+				// botao 5
 				case 6:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "5"){
 						button44->PerformClick();
+						flagChar = "5";
 					}else{
 						button44->Select();
 					}					
 					break;
+
+				// botao 6
 				case 7:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "6"){
 						button43->PerformClick();
+						flagChar = "6";
 					}else{
 						button43->Select();
 					}					
 					break;
+
+				// botao 7
 				case 8:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "7"){
 						button42->PerformClick();
+						flagChar = "7";
 					}else{
 						button42->Select();
 					}					
 					break;
+
+				// botao 8
 				case 9:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "8"){
 						button41->PerformClick();
+						flagChar = "8";
 					}else{
 						button41->Select();
 					}					
 					break;
+
+				// botao 9
 				case 10:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "9"){
 						button40->PerformClick();
+						flagChar = "9";
 					}else{
 						button40->Select();
 					}
 					break;
+
+				// botao 0
 				case 11:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "0"){
 						button39->PerformClick();
+						flagChar = "0";
 					}else{
 						button39->Select();
 					}
 					break;
+
+				// botao -
 				case 12:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "-"){
 						button38->PerformClick();
+						flagChar = "-";
 					}else{
 						button38->Select();
 					}
 					break;
+
+				// botoao =
 				case 13:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "="){
 						button37->PerformClick();
+						flagChar = "=";
 					}else{
 						button37->Select();
 					}
 					break;
+
+				// botao Back
 				case 14:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "249"){
 						button63->PerformClick();
+						flagChar = "249";
 					}else{
 						button63->Select();
 					}
 					break;
+
+				// botao Tab
 				case 15:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "248"){
 						button28->PerformClick();
+						flagChar = "248";
 					}else{
 						button28->Select();
 					}
 					break;
+
+				// botao Q
 				case 16:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "Q"){
 						button1->PerformClick();
+						flagChar = "Q";
 					}else{
 						button1->Select();
 					}
 					break;
+
+				// botao W
 				case 17:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "W"){
 						button6->PerformClick();
+						flagChar = "W";
 					}else{
 						button6->Select();
 					}
 					break;
+
+				// botao E
 				case 18:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "E"){
 						button9->PerformClick();
+						flagChar = "E";
 					}else{
 						button9->Select();
 					}
 					break;
+
+				// botao R
 				case 19:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "R"){
 						button18->PerformClick();
+						flagChar = "R";
 					}else{
 						button18->Select();
 					}
 					break;
+
+				// botao T
 				case 20:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "T"){
 						button15->PerformClick();
+						flagChar = "T";
 					}else{
 						button15->Select();
 					}
 					break;
+
+				// botao Y
 				case 21:
-					if(blink1==1){
+					if(blink1==1 && "Y"){
 						button12->PerformClick();
+						flagChar = "Y";
 					}else{
 						button12->Select();
 					}
 					break;
+
+				// botao U
 				case 22:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "U"){
 						button27->PerformClick();
+						flagChar = "U";
 					}else{
 						button27->Select();
 					}
 					break;
+
+				// botao I
 				case 23:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "I"){
 						button24->PerformClick();
+						flagChar = "I";
 					}else{
 						button24->Select();
 					}
 					break;
+
+				// botao O
 				case 24:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "O"){
 						button21->PerformClick();
+						flagChar = "O";
 					}else{
 						button21->Select();
 					}
 					break;
+
+				// botao P
 				case 25:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "P"){
 						button36->PerformClick();
+						flagChar = "P";
 					}else{
 						button36->Select();
 					}
 					break;
+
+				// botao ´
 				case 26:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "247"){
 						button33->PerformClick();
+						flagChar = "247";
 					}else{
 						button33->Select();
 					}
 					break;
+
+				// botao [
 				case 27:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "["){
 						button30->PerformClick();
+						flagChar = "[";
 					}else{
 						button30->Select();
 					}
 					break;
+
+				// botao Caps
 				case 28:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "246"){
 						button51->PerformClick();
+						flagChar = "246";
 					}else{
 						button51->Select();
 					}
 					break;
+
+				// botao A
 				case 29:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "A"){
 						button2->PerformClick();
+						flagChar = "A";
 					}else{
 						button2->Select();
 					}
 					break;
+
+				// botao S
 				case 30:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "S"){
 						button5->PerformClick();
+						flagChar = "S";
 					}else{
 						button5->Select();
 					}
 					break;
+
+				// botao D
 				case 31:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "D"){
 						button8->PerformClick();
+						flagChar = "D";
 					}else{
 						button8->Select();
 					}
 					break;
+
+				// botao F
 				case 32:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "F"){
 						button17->PerformClick();
+						flagChar = "F";
 					}else{
 						button17->Select();
 					}
 					break;
+
+				// botao G
 				case 33:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "G"){
 						button14->PerformClick();
+						flagChar = "G";
 					}else{
 						button14->Select();
 					}
 					break;
+				
+				// botao H
 				case 34:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "H"){
 						button11->PerformClick();
+						flagChar = "H";
 					}else{
 						button11->Select();
 					}
 					break;
+
+				// botao J
 				case 35:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "J"){
 						button26->PerformClick();
+						flagChar = "J";
 					}else{
 						button26->Select();
 					}
 					break;
+
+				// botao K
 				case 36:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "K"){
 						button23->PerformClick();
+						flagChar = "K";
 					}else{
 						button23->Select();
 					}
 					break;
+
+				// botao L
 				case 37:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "L"){
 						button20->PerformClick();
+						flagChar = "L";
 					}else{
 						button20->Select();
 					}
 					break;
+
+				// botao Ç
 				case 38:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "Ç"){
 						button35->PerformClick();
+						flagChar = "Ç";
 					}else{
 						button35->Select();
 					}
 					break;
+
+				// botao ~
 				case 39:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "~"){
 						button32->PerformClick();
+						flagChar = "~";
 					}else{
 						button32->Select();
 					}
 					break;
+
+				// botao ]
 				case 40:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "]"){
 						button29->PerformClick();
+						flagChar = "]";
 					}else{
 						button29->Select();
 					}
 					break;
+
+				// botao ENTER
 				case 41:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "245"){
 						button62->PerformClick();
+						flagChar = "245";
 					}else{
 						button62->Select();
 					}
 					break;
+
+				// botao SHIFT ESQ
 				case 42:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "244"){
 						button52->PerformClick();
+						flagChar = "244";
 					}else{
 						button52->Select();
 					}
 					break;
+
+				// botao Barra invertida
 				case 43:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "243"){
 						button50->PerformClick();
+						flagChar != "243";
 					}else{
 						button50->Select();
 					}
 					break;
+
+				// botao Z
 				case 44:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "Z"){
 						button3->PerformClick();
+						flagChar = "Z";
 					}else{
 						button3->Select();
 					}
 					break;
+
+				// botao X
 				case 45:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "X"){
 						button4->PerformClick();
+						flagChar = "X";
 					}else{
 						button4->Select();
 					}
 					break;
+
+				// botao C
 				case 46:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "C"){
 						button7->PerformClick();
+						flagChar = "C";
 					}else{
 						button7->Select();
 					}
 					break;
+
+				// botao V
 				case 47:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "V"){
 						button16->PerformClick();
+						flagChar = "V";
 					}else{
 						button16->Select();
 					}
 					break;
+
+				// botao B
 				case 48:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "B"){
 						button13->PerformClick();
+						flagChar = "B";
 					}else{
 						button13->Select();
 					}
 					break;
+
+				// botao N
 				case 49:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "N"){
 						button10->PerformClick();
+						flagChar = "N";
 					}else{
 						button10->Select();
 					}
 					break;
+
+				// botao M
 				case 50:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "M"){
 						button25->PerformClick();
+						flagChar = "M";
 					}else{
 						button25->Select();
 					}
 					break;
+
+				// botao ,
 				case 51:
-					if(blink1==1){
+					if(blink1==1 && flagChar != ","){
 						button22->PerformClick();
+						flagChar = ",";
 					}else{
 						button22->Select();
 					}
 					break;
+
+				// botao .
 				case 52:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "."){
 						button19->PerformClick();
+						flagChar = ".";
 					}else{
 						button19->Select();
 					}
 					break;
+
+				// botao ;
 				case 53:
-					if(blink1==1){
+					if(blink1==1 && flagChar != ";"){
 						button34->PerformClick();
+						flagChar = ";";
 					}else{
 						button34->Select();
 					}
 					break;
+
+				// botao ?
 				case 54:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "?"){
 						button31->PerformClick();
+						flagChar = "?";
 					}else{
 						button31->Select();
 					}
 					break;
+
+				// botao Shift Dir
 				case 55:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "242"){
 						button61->PerformClick();
+						flagChar = "242";
 					}else{
 						button61->Select();
 					}
 					break;
+
+				// botao CTRL ESQ
 				case 56:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "241"){
 						button53->PerformClick();
+						flagChar = "241";
 					}else{
 						button53->Select();
 					}
 					break;
+
+				// botao WIN ESQ
 				case 57:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "241"){
 						button54->PerformClick();
+						flagChar = "241";
 					}else{
 						button54->Select();
 					}
 					break;
+
+				// botao ALT ESQ
 				case 58:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "240"){
 						button55->PerformClick();
+						flagChar = "240";
 					}else{
 						button55->Select();
 					}
 					break;
+
+				// botao ESPAÇO
 				case 59:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "239"){
 						button56->PerformClick();
+						flagChar = "239";
 					}else{
 						button56->Select();
 					}
 					break;
+
+				// botao ALT DIR
 				case 60:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "238"){
 						button57->PerformClick();
+						flagChar = "238";
 					}else{
 						button57->Select();
 					}
 					break;
+
+				// botao WIN DIR
 				case 61:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "237"){
 						button58->PerformClick();
+						flagChar = "237";
 					}else{
 						button58->Select();
 					}
 					break;
+
+				// botao Print
 				case 62:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "236"){
 						button59->PerformClick();
+						flagChar = "236";
 					}else{
 						button59->Select();
 					}
 					break;
+
+				// botao CTRL DIR
 				case 63:
-					if(blink1==1){
+					if(blink1==1 && flagChar != "235"){
 						button60->PerformClick();
+						flagChar = "235";
 					}else{
 						button60->Select();
 					}		
