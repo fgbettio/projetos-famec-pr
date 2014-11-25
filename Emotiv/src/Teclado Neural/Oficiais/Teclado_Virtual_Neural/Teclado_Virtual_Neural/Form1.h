@@ -2,6 +2,7 @@
 #include <edkErrorCode.h>
 #include <iostream>
 #include <conio.h>
+#include <Windows.h>
 #pragma comment(lib, "edk.lib")
 #pragma once
 

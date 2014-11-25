@@ -1,4 +1,4 @@
-﻿Build started 25/11/2014 21:44:08.
+﻿Build started 25/11/2014 21:53:15.
      1>Project "D:\Projetos Famec\Capacete Neural\SVN Google Code\Emotiv\src\Teclado Neural\Oficiais\Teclado_Virtual_Neural\Teclado_Virtual_Neural\Teclado_Virtual_Neural.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Touching "Debug\Teclado_Virtual_Neural.unsuccessfulbuild".
@@ -10,8 +10,7 @@
          Teclado_Virtual_Neural.cpp
          All outputs are up-to-date.
        CoreResGen:
-         "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\NETFX 4.0 Tools\resgen.exe" /useSourcePath /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /compile Form1.resX,Debug\Teclado_Virtual_Neural.Form1.resources
-         Processing resource file "Form1.resX" into "Debug\Teclado_Virtual_Neural.Form1.resources".
+         No resources are out of date with respect to their source files. Skipping resource generation.
        ResourceCompile:
          All outputs are up-to-date.
        Link:
@@ -31,4 +30,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.34
+Time Elapsed 00:00:01.46
