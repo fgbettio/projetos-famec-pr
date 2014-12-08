@@ -1264,12 +1264,19 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 				{
 					EE_EmoEngineEventGetEmoState(eEvent, eState);
 						
-					lookLeft = ES_ExpressivIsLookingLeft(eState);
+					
 					lookRight = ES_ExpressivIsLookingRight(eState);
 					blink = ES_ExpressivIsBlink(eState);
 
 					//status->Text = status->Text + "Esquerda: " + lookLeft + ", direta: "+ lookRight +"\r\n";
 						
+					do
+					{
+						lookLeft = ES_ExpressivIsLookingLeft(eState);
+					}
+					while(lookLeft == 1)
+					
+
 					if(lookRight==1)
 					{
 						status->Text = status->Text + "Olhou para a direita!" + "\r\n";
