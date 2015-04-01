@@ -15,6 +15,7 @@
 
 #pragma comment(lib, "edk.lib")
 
+void iniciar_processo_captura_sinais();
 void logEmoState(std::ostream& os, unsigned int userID, EmoStateHandle eState, bool withHeader = false);
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -84,12 +85,14 @@ int _tmain(int argc, _TCHAR* argv[])
 		std::cout << "Pression '8' para ''" << std::endl;
 		std::cout << "Pression '9' para ''" << std::endl;
 		std::cout << "Pression '10' para 'Sair'" << std::endl;
+		std::cout << ">> ";
 
 		std::getline(std::cin, input, '\n');
 		option = atoi(input.c_str());
 
 		switch (option) {
 			case 1: {
+				iniciar_processo_captura_sinais();
 				break;
 			}
 			case 2: {
@@ -154,8 +157,7 @@ int _tmain(int argc, _TCHAR* argv[])
 					
 					printf("Left: %d, Right: %d, UP: %d, Blink: %d\t Time: %f\n",
 						ES_ExpressivIsLookingLeft(eState),ES_ExpressivIsLookingRight(eState),ES_ExpressivIsLookingUp(eState), ES_ExpressivIsBlink(eState), ES_GetTimeFromStart(eState));
-					
-					
+
 				}
 			}
 			else if (state != EDK_NO_EVENT) {
@@ -177,6 +179,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	EE_EmoEngineEventFree(eEvent);
 
 	return 0;
+}
+
+void iniciar_processo_captura_sinais(){
+	std::cout << "Chamou!!!" << std::endl;
 }
 
 void logEmoState(std::ostream& os, unsigned int userID, EmoStateHandle eState, bool withHeader) {
