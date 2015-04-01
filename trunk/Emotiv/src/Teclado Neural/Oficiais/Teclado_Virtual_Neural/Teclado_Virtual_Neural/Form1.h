@@ -127,7 +127,7 @@ namespace Teclado_Virtual_Neural {
 		blink, lookLeft, lookRight, 
 		countBlink, countLookLeft, countLookRight, 
 		tempBlink, tempLookLeft, tempLookRight, contMapButton,
-		flagConectado;
+		flagConectado, flagLookRight, flagLookLeft, flagBlink;
 	private: System::Windows::Forms::Timer^  timer1;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Button^  button66;
@@ -1156,6 +1156,9 @@ private: System::Windows::Forms::Button^  button68;
 			tempLookRight = 0;
 			contMapButton = 29;
 			flagConectado = 0;
+			flagLookRight = 0;
+			flagLookLeft = 0;
+			flagBlink = 0;
 		}
 #pragma endregion
 
@@ -1266,17 +1269,64 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 						
 					
 					lookRight = ES_ExpressivIsLookingRight(eState);
+					lookLeft = ES_ExpressivIsLookingLeft(eState);
 					blink = ES_ExpressivIsBlink(eState);
-
+					//status->Text= status->Text +"Teste: "+lookRight+" "+lookLeft+" "+blink+"\r\n";
 					//status->Text = status->Text + "Esquerda: " + lookLeft + ", direta: "+ lookRight +"\r\n";
 						
-					do
-					{
-						lookLeft = ES_ExpressivIsLookingLeft(eState);
-					}
-					while(lookLeft == 1)
+					//do
+					//{
+						//
+					//}
+					//while(lookLeft == 1)
 					
+					// INICIO TESTE Ideia
+					// Mover cursor quando o olho retornar ao centro
+					// RIGHT
+					if(lookRight == 1)
+					{
+						flagLookRight = 1;
+					}else if(lookRight == 0 && flagLookRight == 1){
+						flagLookRight = 0;
+						status->Text = status->Text + "Olhou para a direita!" + "\r\n";
+						
+						contMapButton++;
+						if(contMapButton > 63){
+							contMapButton = 1;
+						}
+						status->Text = status->Text + "Numero do mapa do teclado: " + contMapButton + "\r\n";
+						chamarSwitch(contMapButton, blink);
+					}
 
+					// LEFT
+					if(lookLeft == 1)
+					{
+						flagLookLeft = 1;
+					}else if(lookLeft == 0 && flagLookLeft == 1){
+						flagLookLeft = 0;
+						status->Text = status->Text + "Olhou para esquerda!" + "\r\n";
+						contMapButton--;
+						if(contMapButton < 1){
+							contMapButton = 63;
+						}
+						status->Text = status->Text + "Numero do mapa do teclado: " + contMapButton + "\r\n";
+						chamarSwitch(contMapButton, blink);
+					}
+
+					// BLINK
+					if(blink == 1)
+					{
+						flagBlink = 1;
+					}else if(blink == 0 && flagBlink == 1){
+						flagBlink = 0;
+						status->Text = status->Text + "Piscou!" + "\r\n";
+						status->Text = status->Text + "Numero do mapa do teclado: " + contMapButton + "\r\n";
+						chamarSwitch(contMapButton, 1);
+					}
+
+					// FIM TESTE ideia
+
+/*
 					if(lookRight==1)
 					{
 						status->Text = status->Text + "Olhou para a direita!" + "\r\n";
@@ -1305,6 +1355,7 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 						status->Text = status->Text + "Numero do mapa do teclado: " + contMapButton + "\r\n";
 						chamarSwitch(contMapButton, blink);
 					}
+*/
 				}
 
 				// codigo mostra os valores do gyroscope
